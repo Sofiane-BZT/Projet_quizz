@@ -68,19 +68,54 @@ class Controller_selection extends Controller
         $_SESSION['ls_id_question'] = $listeIdQuestion;
         $cpt = 0;
         $_SESSION['compteur'] = $cpt;
-        // var_dump($listeIdQuestion);
-
+    
         $idQuestion = $listeIdQuestion[$cpt]->id_question;
         
+        $question = $m->get_intitule_question($idQuestion);
+        $reponse = $m->get_intitule_reponse($idQuestion);
+        $typeReponse = $m->get_type_reponse($idQuestion);
+    
+        $typeRep = []; // Tableau pour stocker les valeurs de type_reponse
+        foreach ($typeReponse as $r) {
+            $typeRep[] = strval($r->type_reponse); // Convertit la valeur en chaîne de caractères et l'ajoute dans le tableau
+        }
+    
         $data = [
-            "question" => $m->get_intitule_question($idQuestion),
-            "reponse" => $m->get_intitule_reponse($idQuestion)
+            "question" => $question,
+            "reponse" => $reponse,
+            "typeRep" => $typeRep
         ];
-       
-        var_dump($data);
+    var_dump($typeRep);
         $this->render("quizz", $data);
-
     }
+
+    // public function action_all_liste_id_question() {
+    //     $niveau = $_GET['niveau_question'];
+    //     $_SESSION['niveau_question'] = $niveau;
+    //     $m = Model::get_model();
+    //     $listeIdQuestion = $m->get_all_liste_id_question($_SESSION['theme'], $_SESSION['niveau_question']);
+    //     $_SESSION['ls_id_question'] = $listeIdQuestion;
+    //     $cpt = 0;
+    //     $_SESSION['compteur'] = $cpt;
+    //     // var_dump($listeIdQuestion);
+
+    //     $idQuestion = $listeIdQuestion[$cpt]->id_question;
+        
+    //     $data = [
+    //         "question" => $m->get_intitule_question($idQuestion),
+    //         "reponse" => $m->get_intitule_reponse($idQuestion),
+    //         "typeReponse" => $m->get_type_reponse($idQuestion)
+    //     ];
+       
+    //     $typeRep = []; // Tableau pour stocker les valeurs de type_reponse
+    // foreach ($data as $r) {
+    //     $typeRep[] = strval($r->type_reponse); // Convertit la valeur en chaîne de caractères et l'ajoute dans le tableau
+    // }
+    // echo($data);
+    //     // var_dump($data);
+    //     $this->render("quizz", $data);
+
+    // }
 
 
 

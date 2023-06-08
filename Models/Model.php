@@ -120,6 +120,14 @@ public function get_intitule_reponse($idQuestion) {
     $r->execute();
     return $r->fetchAll(PDO::FETCH_OBJ);
 }
+
+public function get_type_reponse($idQuestion) {
+    $r = $this->bd->prepare("SELECT type_reponse FROM reponse WHERE `id_question` = :Id_question");
+    var_dump($idQuestion);
+    $r->bindParam(':Id_question', $idQuestion);
+    $r->execute();
+    return $r->fetchAll(PDO::FETCH_OBJ);
+}
 }
 
 // Fin de la Classe
