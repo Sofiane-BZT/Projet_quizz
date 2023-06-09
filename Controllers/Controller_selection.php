@@ -25,15 +25,6 @@ class Controller_selection extends Controller
 
 // ------------------------------------Tout les niveaux--------------------------------
 
-    // public function action_all_niveaux() {
-    //     $theme = $_GET['id_theme'];
-    //     $_SESSION['theme'] = $theme;
-    //     $m = Model::get_model();
-    //     $data = ["niveaux" => $m->get_all_niveaux($_SESSION['theme'])];
-    //     $this->render("niveaux", $data);
-    //     // var_dump($data);
-    // }
-
     public function action_all_niveaux() {
         // Vérifier si id_theme est présent dans la requête
         if (isset($_GET['id_theme'])) {
@@ -59,18 +50,29 @@ class Controller_selection extends Controller
         }
     }
 
+// ------------------------------Récupération liste id_question selon theme et niveau - initialisation compteur -------------------------------------------------------
+    
+        public function action_init() {
 
-    public function action_all_liste_id_question() {
         $niveau = $_GET['niveau_question'];
         $_SESSION['niveau_question'] = $niveau;
+        // var_dump($niveau);
         $m = Model::get_model();
         $listeIdQuestion = $m->get_all_liste_id_question($_SESSION['theme'], $_SESSION['niveau_question']);
         $_SESSION['ls_id_question'] = $listeIdQuestion;
-        $cpt = 0;
-        $_SESSION['compteur'] = $cpt;
-    
-        $idQuestion = $listeIdQuestion[$cpt]->id_question;
-        
+        $_SESSION['compteur'] = 0;
+        // var_dump($_SESSION['ls_id_question']);
+        // var_dump($_SESSION['compteur']);
+        $this->render("init_reussie");
+    }
+
+// ----------------------Récupération intitulé pour une question - réponses possibles - type de réponse - transfome type-reponse en string --------------------------
+
+    public function action_question_reponse_type_rep() {
+
+        $idQuestion = $_SESSION['ls_id_question'][$_SESSION['compteur']]->id_question;
+        // var_dump($idQuestion);
+        $m = Model::get_model();
         $question = $m->get_intitule_question($idQuestion);
         $reponse = $m->get_intitule_reponse($idQuestion);
         $typeReponse = $m->get_type_reponse($idQuestion);
@@ -85,40 +87,19 @@ class Controller_selection extends Controller
             "reponse" => $reponse,
             "typeRep" => $typeRep
         ];
-    var_dump($typeRep);
+
+        $_SESSION['compteur']++; // Augmenter la valeur de compteur pour passer à la question suivante
+        $_SESSION['ls_id_question'][$_SESSION['compteur']];
+
+    // Vérifier si toutes les questions ont été affichées
+    if ($_SESSION['compteur'] >= count($_SESSION['ls_id_question'])) {
+        // Toutes les questions ont été affichées, vous pouvez afficher un message de fin de quizz ou rediriger vers une autre page
+        $this->render("accueil");
+    } else {
+        // Il reste des questions, afficher la prochaine question
         $this->render("quizz", $data);
     }
-
-    // public function action_all_liste_id_question() {
-    //     $niveau = $_GET['niveau_question'];
-    //     $_SESSION['niveau_question'] = $niveau;
-    //     $m = Model::get_model();
-    //     $listeIdQuestion = $m->get_all_liste_id_question($_SESSION['theme'], $_SESSION['niveau_question']);
-    //     $_SESSION['ls_id_question'] = $listeIdQuestion;
-    //     $cpt = 0;
-    //     $_SESSION['compteur'] = $cpt;
-    //     // var_dump($listeIdQuestion);
-
-    //     $idQuestion = $listeIdQuestion[$cpt]->id_question;
-        
-    //     $data = [
-    //         "question" => $m->get_intitule_question($idQuestion),
-    //         "reponse" => $m->get_intitule_reponse($idQuestion),
-    //         "typeReponse" => $m->get_type_reponse($idQuestion)
-    //     ];
-       
-    //     $typeRep = []; // Tableau pour stocker les valeurs de type_reponse
-    // foreach ($data as $r) {
-    //     $typeRep[] = strval($r->type_reponse); // Convertit la valeur en chaîne de caractères et l'ajoute dans le tableau
-    // }
-    // echo($data);
-    //     // var_dump($data);
-    //     $this->render("quizz", $data);
-
-    // }
-
-
-
+    }
 
 
 

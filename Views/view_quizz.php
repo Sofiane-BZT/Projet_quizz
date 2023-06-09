@@ -1,5 +1,6 @@
-div>
-  <h1>Page du quizz</h1>
+<div>
+<h1>Page du quizz</h1>
+<form action="?controller=selection&action=question_reponse_type_rep" method="POST">
   <p><?= htmlspecialchars($question) ?></p>
   
   <?php $nbTypeReponse1 = 0; ?>
@@ -19,6 +20,8 @@ div>
       <label><?= htmlspecialchars($r->intitule_reponse) ?></label>
     </div>
   <?php } ?>
+  <button type="submit">Valider</button>
+</form>
 </div>
 
 
