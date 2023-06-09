@@ -3,16 +3,12 @@
 <form action="?controller=selection&action=question_reponse_type_rep" method="POST">
   <p><?= htmlspecialchars($question) ?></p>
   
-  <?php $nbTypeReponse1 = 0; ?>
-  <?php foreach ($typeRep as $valeur) { ?>
-    <?php if ($valeur === "1") { $nbTypeReponse1++; } ?>
-  <?php } ?>
-  
-  <?php $Checkboxes = ($nbTypeReponse1 >= 2); ?>
+
   
   <?php foreach ($reponse as $index => $r) { ?>
     <div>
-      <?php if ($Checkboxes) { ?>
+      <?php if ($isCheckbox) { var_dump($isCheckbox)?>
+        
         <input type="checkbox" name="reponse[]" value="<?= htmlspecialchars($r->intitule_reponse) ?>">
       <?php } else { ?>
         <input type="radio" name="reponse" value="<?= htmlspecialchars($r->intitule_reponse) ?>">

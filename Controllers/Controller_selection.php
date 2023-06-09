@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Fonctions/convertTypeRepToString.php';
+
 class Controller_selection extends Controller
 {
 	public function action_default()
@@ -61,12 +63,14 @@ class Controller_selection extends Controller
         $listeIdQuestion = $m->get_all_liste_id_question($_SESSION['theme'], $_SESSION['niveau_question']);
         $_SESSION['ls_id_question'] = $listeIdQuestion;
         $_SESSION['compteur'] = 0;
+        $_SESSION['score'] = 0;
         // var_dump($_SESSION['ls_id_question']);
         // var_dump($_SESSION['compteur']);
         $this->render("init_reussie");
     }
 
 // ----------------------Récupération intitulé pour une question - réponses possibles - type de réponse - transfome type-reponse en string --------------------------
+    
 
     public function action_question_reponse_type_rep() {
 
@@ -76,16 +80,14 @@ class Controller_selection extends Controller
         $question = $m->get_intitule_question($idQuestion);
         $reponse = $m->get_intitule_reponse($idQuestion);
         $typeReponse = $m->get_type_reponse($idQuestion);
-    
-        $typeRep = []; // Tableau pour stocker les valeurs de type_reponse
-        foreach ($typeReponse as $r) {
-            $typeRep[] = strval($r->type_reponse); // Convertit la valeur en chaîne de caractères et l'ajoute dans le tableau
-        }
-    
+
+        convertTypeRepToString($typeReponse);
+
         $data = [
             "question" => $question,
             "reponse" => $reponse,
-            "typeRep" => $typeRep
+            "typeRep" => $typeReponse,
+            "isCheckbox" => convertTypeRepToString($typeReponse) > 1
         ];
 
         $_SESSION['compteur']++; // Augmenter la valeur de compteur pour passer à la question suivante
@@ -98,6 +100,7 @@ class Controller_selection extends Controller
     } else {
         // Il reste des questions, afficher la prochaine question
         $this->render("quizz", $data);
+
     }
     }
 

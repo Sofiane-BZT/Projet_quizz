@@ -23,6 +23,7 @@ session_start();
 	require_once 'Controllers/Controller.php';
 	require_once 'Models/Model.php';
 	
+	
 	$controllers=["accueil", "authentification", "inscription", "selection", "quizz"];
 	$controller_default="authentification"; 
 	$controller_with_header=["accueil", "selection", "quizz"];
