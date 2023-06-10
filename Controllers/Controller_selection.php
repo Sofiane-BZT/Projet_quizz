@@ -1,5 +1,7 @@
 <?php
 
+require_once 'Fonctions/convertTypeRepToString.php';
+require_once 'Fonctions/convertValueArrayToString.php';
 class Controller_selection extends Controller
 {
 	public function action_default()
@@ -61,12 +63,14 @@ class Controller_selection extends Controller
         $listeIdQuestion = $m->get_all_liste_id_question($_SESSION['theme'], $_SESSION['niveau_question']);
         $_SESSION['ls_id_question'] = $listeIdQuestion;
         $_SESSION['compteur'] = 0;
+        $_SESSION['score'] = 0;
         // var_dump($_SESSION['ls_id_question']);
         // var_dump($_SESSION['compteur']);
         $this->render("init_reussie");
     }
 
 // ----------------------Récupération intitulé pour une question - réponses possibles - type de réponse - transfome type-reponse en string --------------------------
+    
 
     public function action_question_reponse_type_rep() {
 
@@ -75,17 +79,16 @@ class Controller_selection extends Controller
         $m = Model::get_model();
         $question = $m->get_intitule_question($idQuestion);
         $reponse = $m->get_intitule_reponse($idQuestion);
+        var_dump($reponse);
         $typeReponse = $m->get_type_reponse($idQuestion);
-    
-        $typeRep = []; // Tableau pour stocker les valeurs de type_reponse
-        foreach ($typeReponse as $r) {
-            $typeRep[] = strval($r->type_reponse); // Convertit la valeur en chaîne de caractères et l'ajoute dans le tableau
-        }
-    
+
+        convertTypeRepToString($typeReponse);
+
         $data = [
             "question" => $question,
             "reponse" => $reponse,
-            "typeRep" => $typeRep
+            "typeRep" => $typeReponse,
+            "isCheckbox" => convertTypeRepToString($typeReponse) > 1
         ];
 
         $_SESSION['compteur']++; // Augmenter la valeur de compteur pour passer à la question suivante
@@ -98,10 +101,43 @@ class Controller_selection extends Controller
     } else {
         // Il reste des questions, afficher la prochaine question
         $this->render("quizz", $data);
+
     }
+
+
+    if (isset($_POST["reponse"]))
+    {
+        if (!empty($_POST["reponse"]))
+        {
+    // je récupere la réponses de la question précédente pour la comparer à la soumission que je viens de faire 
+    // Sinon un décalage se fait et ma réponse se compage à la question nouvelle
+
+    $compteur = $_SESSION['compteur'] - 1;
+$idQuestion = $_SESSION['ls_id_question'][$compteur]->id_question;
+$typeReponse = $m->get_type_reponse($idQuestion);
+// réponses recus par la BD avec la requette juste ci-dessus et converti en tableau de string pat la fonction convertValueArrayToString
+$reponseBD = convertValueArrayToString($typeReponse);
+
+// reponses choisies par le joueur envoyé par le formulaire avec la methode post  en tableau de string pat la fonction convertValueArrayToString
+
+    $reponses = convertValueArrayToString($_POST['reponse']);
+
+    $score= $_SESSION['score'] ;
+    var_dump($_POST['reponse']);
+var_dump($reponses);
+var_dump($reponseBD);
+    if($reponses === $reponseBD) {
+
+        $score++;
+        // var_dump($score);
+    } else {
+    
+            $_SESSION['score'] = $score;
+            // var_dump($_SESSION['score']);
+        }
     }
+}
 
-
-
+    }
 }
 ?>
