@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 class Controller_authentification extends Controller
 {
 

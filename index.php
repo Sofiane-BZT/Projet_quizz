@@ -13,7 +13,7 @@ session_start();
 	<link rel="stylesheet" href="Content/css/header.css">
 	<link rel="stylesheet" href="Content/css/formulaire_inscription.css">
 	<link rel="stylesheet" href="Content/css/accueil.css">
-	<script src="Content/js/script.js" defer></script>
+	<script src="content/js/script.js" defer></script>
 
     <title>Index</title>
 </head>
@@ -58,8 +58,7 @@ session_start();
 	}
 
 
-	require_once 'Utils/footer.php';
-
+	
 	 ?>
 </body>
 </html>

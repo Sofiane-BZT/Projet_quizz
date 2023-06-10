@@ -1,13 +1,34 @@
-// -------------------------------------HEADER---------------------------------------
+// // -------------------------------------Ouvrir le menu deroulant---------------------------------------
+function openMenu() {
+  const toggleBtn = document.querySelector('.toggle_btn');
+  const toggleBtnIcon = document.querySelector('.toggle_btn i');
+  const dropDownMenu = document.querySelector('.dropdown_menu');
 
-function toggleMenu() {
-  var menu = document.getElementById("menu");
-  menu.classList.toggle("active");
+  toggleBtn.addEventListener('click', function () {
+    dropDownMenu.classList.toggle('open');
+
+    const isOpen = dropDownMenu.classList.contains('open');
+
+    toggleBtnIcon.classList = isOpen
+      ? 'fa-solid fa-xmark'
+      : 'fa-solid fa-bars';
+      console.log("ok");
+  });
 }
 
-function selectTheme(themeId) {
-  document.getElementById("theme").value = themeId;
-}
+
+
+
+// // -------------------------------------HEADER---------------------------------------
+
+// function toggleMenu() {
+//   var menu = document.getElementById("menu");
+//   menu.classList.toggle("active");
+// }
+
+// function selectTheme(themeId) {
+//   document.getElementById("theme").value = themeId;
+// }
 
 // ------------------------------couleur autour de la carte thème sélectionnée-------------
 
