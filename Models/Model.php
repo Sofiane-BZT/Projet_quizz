@@ -152,6 +152,31 @@ public function get_recuperer_infos_profil($idUtilisateur) {
     return $r->fetch(PDO::FETCH_OBJ);
 
 }
+
+//----------------------------------------Modifier profil-------------------------------------------------
+
+public function get_modifier_profil($pseudoUtilisateur, $emailUtilisateur, $idUtilisateur) {
+
+    $r = $this->bd->prepare("UPDATE `utilisateur` SET pseudo_utilisateur=:pseudoUtilisateur, email_utilisateur=:emailUtilisateur WHERE `id_utilisateur`= $idUtilisateur");
+    $r->bindValue(':pseudoUtilisateur', $pseudoUtilisateur);
+    $r->bindValue(':emailUtilisateur', $emailUtilisateur);
+    $r->execute();
+
+    return $r->fetch(PDO::FETCH_OBJ);
+}
+
+// -----------------------------------------Suppression profil----------------------------------------------
+
+public function get_suppression_profil($idUtilisateur) {
+
+    $r = $this->bd->prepare("DELETE FROM utilisateur WHERE `id_utilisateur`=:idUtilisateur");
+    $r->bindValue(':idUtilisateur', $idUtilisateur);
+    $r->execute();
+
+    return $r->fetchAll(PDO::FETCH_OBJ);
+} 
+
+
 }
 
 // Fin de la Classe

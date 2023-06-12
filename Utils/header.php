@@ -24,7 +24,7 @@
   
   <div class="btn_log">
     <span>Bonjour <?php echo $_SESSION['pseudo']; ?></span>
-    <span><?php echo $_SESSION['id_utilisateur']; ?></span>
+    
     <a href="#">Se déconnecter</a>
 </div>
 

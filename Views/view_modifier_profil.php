@@ -1,6 +1,5 @@
 
-<form  action='' method="post">
-<input  name="idmHidden"  value="<?php echo $recuperer_infos_profil->id_utilisateur ?> ">
+<form  action='?controller=profil&action=modifier_profil' method="post">
         <p >Modifier profil</p>
 
         <div >
@@ -24,5 +23,3 @@
             </div>
           </div>
       </form>
-</body>
-</html>
