@@ -128,6 +128,21 @@ public function get_type_reponse($idQuestion) {
     $r->execute();
     return $r->fetchAll(PDO::FETCH_OBJ);
 }
+
+
+//--------------------------------Afficher informations sur le profil connecté-----------------------------------
+
+public function get_all_infos_profil($idUtilisateur) {
+
+    $r = $this->bd->prepare("SELECT pseudo_utilisateur, email_utilisateur FROM utilisateur WHERE `id_utilisateur` = :Id_utilisateur");
+    // var_dump($idQuestion);
+    $r->bindParam(':Id_utilisateur', $idUtilisateur);
+    $r->execute();
+    return $r->fetchAll(PDO::FETCH_OBJ);
+}
+
+
+
 }
 
 // Fin de la Classe
