@@ -27,13 +27,14 @@ public function action_all_infos_profil() {
 
 }
 
-// -------------------------Recuperer/afficher informations sur un livre-----------------------------
+// -------------------------Recuperer les informations sur un livre-----------------------------
 
 public function action_recuperer_infos_profil () {
 
-    $idUtilisateur = $_SESSION['id_utilisateur'];
+    $idUtilisateur = $_GET['id'];
     $m = Model::get_model();
     $data=["recuperer_infos_profil"=>$m->get_recuperer_infos_profil($idUtilisateur)];
+    // var_dump($data["recuperer_infos_profil"]->id_utilisateur); 
     $this->render("modifier_profil",$data);
 
 }
