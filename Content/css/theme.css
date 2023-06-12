@@ -5,11 +5,11 @@
 }
 
 #message_theme div:nth-child(2) {
-  margin-top: 20px; /* Ajustez la valeur en fonction de l'espace souhaité */
+  margin-top: 20px;
 }
 
 #message_theme{
-  height: 35vh;
+  height: 25vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,7 +17,11 @@
   text-align: center;
   color: black;
 }
-
+.choix_theme {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Ajustez la valeur en fonction de l'espacement souhaité */
+}
 
 .card {
     width: 350px;

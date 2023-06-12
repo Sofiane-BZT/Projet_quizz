@@ -12,6 +12,7 @@ body{
   background-position: center;
 }
 
+
 li{
   list-style: none;
 }
@@ -23,7 +24,7 @@ a{
 }
 
 a:hover{
-  color:rgb(22, 47, 73);
+  color:rgb(237, 151, 38);
   /* font-weight: bold; */
 }
 

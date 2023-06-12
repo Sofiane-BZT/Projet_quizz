@@ -7,6 +7,10 @@
   </div>
 </section>
 
+<div class="choix_theme">
+  <h2>Choisissez un thème</h2>
+</div>
+
 <div class="card-container">
   <?php foreach ($themes as $theme) { ?>
     <div class="card">
@@ -19,4 +23,3 @@
     </div>
   <?php } ?>
 </div>
-
