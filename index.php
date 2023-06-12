@@ -13,6 +13,8 @@ session_start();
 	<link rel="stylesheet" href="Content/css/header.css">
 	<link rel="stylesheet" href="Content/css/formulaire_inscription.css">
 	<link rel="stylesheet" href="Content/css/accueil.css">
+	<link rel="stylesheet" href="Content/css/theme.css"">
+
 	<script src="content/js/script.js" defer></script>
 
     <title>Index</title>

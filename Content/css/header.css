@@ -7,7 +7,7 @@
 
 body{
   height: 100vh;
-  background-color: whitesmoke;
+  background-color: rgb(232, 232, 232);
   background-size: cover;
   background-position: center;
 }
@@ -23,19 +23,21 @@ a{
 }
 
 a:hover{
-  color:rgb(22, 47, 73)
+  color:rgb(22, 47, 73);
+  font-weight: bold;
 }
 
 header {
   position: relative;
-  padding: 0 2rem;
+  /* -----------------Le padding est desactivé, à reactiver si les images background correspondent------------------ */
+  /* padding: 0 2rem; */
 }
 /* ----------------- Barre de navigation ------------------ */
 
 .navbar {
   width: 100%;
   height: 60px;
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -44,6 +46,7 @@ header {
 }
 
 .navbar .logo a {
+  padding-left: 25px;
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -53,6 +56,13 @@ display: flex;
 gap: 2rem;
 }
 
+.navbar .btn_log {
+  padding-right: 25px;
+}
+
+.navbar .btn_log span{
+  padding-right: 25px;
+}
 .navbar .toggle_btn{
   color: #fff;
   font-size: 1.5rem;
@@ -72,6 +82,7 @@ gap: 2rem;
   cursor: pointer;
   transition: scale 0.2 ease;
 }
+
 
 .action_btn:hover{
   scale: 1.05;

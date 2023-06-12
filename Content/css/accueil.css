@@ -12,33 +12,6 @@ section#hero{
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-
-
-.card.selected {
-  border: 2px solid blue;
-}
-
-.card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  border-radius: 5px;
-}
-
-.card-content {
-  padding: 10px;
-  text-align: center;
-}
-
-.card-content span {
-  margin: 0 auto;
-  font-size: 14px;
-  color: blue;
+.afficher_theme {
+  color: black;
 }
