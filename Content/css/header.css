@@ -24,7 +24,7 @@ a{
 
 a:hover{
   color:rgb(22, 47, 73);
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 header {
@@ -42,7 +42,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #00ACEE;
+  background-color: rgb(114, 196, 223);
 }
 
 .navbar .logo a {
@@ -51,10 +51,11 @@ header {
   font-weight: bold;
 }
 
-.navbar .links {
+.navbar .elements_navbar {
 display: flex;
 gap: 2rem;
 }
+/* -----------------<Pseudo et bouton----------------- */
 
 .navbar .btn_log {
   padding-right: 25px;
@@ -62,6 +63,7 @@ gap: 2rem;
 
 .navbar .btn_log span{
   padding-right: 25px;
+  color: #fff;
 }
 .navbar .toggle_btn{
   color: #fff;
@@ -140,7 +142,7 @@ gap: 2rem;
   }
 }
 @media(max-width: 991px) {
-  .navbar .links,
+  .navbar .elements_navbar,
   .navbar .action_btn {
     display: none;
   }

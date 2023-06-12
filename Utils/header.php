@@ -1,3 +1,4 @@
+<!--------------Pas de session_start ici car il est deja dans l'index.php-------------->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
   <!--------------Barre de navigation---------------->
   <div class="navbar">
     <div class="logo"><a href="#">QCM SS</a></div>
-    <ul class="links">
+    <ul class="elements_navbar">
         <li><a href="accueil">Accueil</a></li>
         <li><a href="historique">Historique</a></li>
         <li><a href="profil">Profil</a></li>
