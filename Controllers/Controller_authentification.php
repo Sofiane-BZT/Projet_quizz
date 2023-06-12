@@ -31,6 +31,7 @@ class Controller_authentification extends Controller
           			if ((strcmp($pseudo,trim($data["utilisateur"]->pseudo_utilisateur)) == 0 ) && strcmp($motDePasse,trim($data["utilisateur"]->mdp_utilisateur)) == 0) {
 	
                  		$_SESSION['pseudo'] = $data["utilisateur"]->pseudo_utilisateur;
+						$_SESSION['id_utilisateur'] = $data["utilisateur"]->id_utilisateur;
 
  		 				$this->render("authentification_reussie");
 

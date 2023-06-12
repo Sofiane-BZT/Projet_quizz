@@ -25,9 +25,9 @@ session_start();
 	require_once 'Models/Model.php';
 	
 	
-	$controllers=["accueil", "authentification", "inscription", "selection", "quizz"];
+	$controllers=["accueil", "authentification", "inscription", "selection", "quizz", "profil"];
 	$controller_default="authentification"; 
-	$controller_with_header=["accueil", "selection", "quizz"];
+	$controller_with_header=["accueil", "selection", "quizz", "profil"];
 
 	if (isset($_GET['controller']) and in_array($_GET['controller'],$controllers))
 	{

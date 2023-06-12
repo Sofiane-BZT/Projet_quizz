@@ -17,13 +17,14 @@
     <ul class="elements_navbar">
         <li><a href="accueil">Accueil</a></li>
         <li><a href="historique">Historique</a></li>
-        <li><a href="profil">Profil</a></li>
+        <li><a class="dropdown-item" href="?controller=profil&action=all_infos_profil">Profil</a></li>
     </ul>
 
   <!--------------Pseudo et bouton---------------->
   
   <div class="btn_log">
     <span>Bonjour <?php echo $_SESSION['pseudo']; ?></span>
+    <span><?php echo $_SESSION['id_utilisateur']; ?></span>
     <a href="#">Se déconnecter</a>
 </div>
 
@@ -36,7 +37,7 @@
     <ul>
         <li><a href="accueil">Accueil</a></li>
         <li><a href="historique">Historique</a></li>
-        <li><a href="profil">Profil</a></li>
+        <li><a class="dropdown-item" href="?controller=profil&action=all_infos_profil">Profil</a></li>
         <li><a href="#">Se déconnecter</a></li>
     </ul>
     <div class="btn_log">
