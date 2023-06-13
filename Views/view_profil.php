@@ -1,3 +1,4 @@
+
 <h1>Informations sur le profil</h1>
 <div class="container">
   <form>
@@ -26,9 +27,8 @@
       </tbody>
     </table>
     <div class="actions-container">
-      <button class="edit-button" href='?controller=profil&action=recuperer_infos_profil&id=<?= $afficher_infos_profil->id_utilisateur ?>'>Modifier</button>
-      <span style="margin: 5px;"></span>
-      <button class="delete-button" href='?controller=profil&action=conf_supp_profil&id=<?= $afficher_infos_profil->id_utilisateur ?>'>Supprimer</button>
+      <a class="edit-button" href='?controller=profil&action=recuperer_infos_profil&id=<?= $afficher_infos_profil->id_utilisateur ?>'>Modifier</a>
+      <a class="delete-button" href='?controller=profil&action=conf_supp_profil&id=<?= $afficher_infos_profil->id_utilisateur ?>'>Supprimer</a>
     </div>
   </form>
 </div>

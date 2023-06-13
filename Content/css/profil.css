@@ -1,4 +1,4 @@
-.container {
+.profil .container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,7 +7,7 @@
   border-radius: 20px;
 }
 
-form {
+.profil form {
   width: 400px;
   text-align: center;
 }
@@ -36,10 +36,6 @@ th {
 
 .actions {
   text-align: center;
-}
-
-.actions button {
-  margin: 5px;
 }
 
 .actions-container {

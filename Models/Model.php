@@ -134,7 +134,7 @@ public function get_type_reponse($idQuestion) {
 
 public function get_all_infos_profil($idUtilisateur) {
 
-    $r = $this->bd->prepare("SELECT prenom_utilisateur, pseudo_utilisateur, age_utilisateur, email_utilisateur FROM utilisateur WHERE `id_utilisateur` = :Id_utilisateur");
+    $r = $this->bd->prepare("SELECT id_utilisateur, prenom_utilisateur, pseudo_utilisateur, age_utilisateur, email_utilisateur FROM utilisateur WHERE `id_utilisateur` = :Id_utilisateur");
     // var_dump($idQuestion);
     $r->bindParam(':Id_utilisateur', $idUtilisateur);
     $r->execute();
@@ -145,7 +145,7 @@ public function get_all_infos_profil($idUtilisateur) {
 
 public function get_recuperer_infos_profil($idUtilisateur) {
 
-    $r = $this->bd->prepare("SELECT prenom_utilisateur, pseudo_utilisateur, age_utilisateur, email_utilisateur FROM utilisateur WHERE `id_utilisateur` = :Id_utilisateur");
+    $r = $this->bd->prepare("SELECT id_utilisateur, prenom_utilisateur, pseudo_utilisateur, age_utilisateur, email_utilisateur FROM utilisateur WHERE `id_utilisateur` = :Id_utilisateur");
     // var_dump($idQuestion);
     $r->bindParam(':Id_utilisateur', $idUtilisateur);
     $r->execute();
