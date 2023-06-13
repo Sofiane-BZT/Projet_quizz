@@ -79,7 +79,7 @@ class Controller_selection extends Controller
         $m = Model::get_model();
         $question = $m->get_intitule_question($idQuestion);
         $reponse = $m->get_intitule_reponse($idQuestion);
-        var_dump($reponse);
+        // var_dump($reponse);
         $typeReponse = $m->get_type_reponse($idQuestion);
 
         convertTypeRepToString($typeReponse);
@@ -109,10 +109,18 @@ class Controller_selection extends Controller
     {
         if (!empty($_POST["reponse"]))
         {
+
+        // Récupérer les réponses sélectionnées
+        $reponsesSelectionnees = $_POST["reponse"];
+            var_dump($reponsesSelectionnees);
+        // Stocker les réponses sélectionnées dans $_SESSION
+        $_SESSION["reponses_selectionnees"] = $reponsesSelectionnees;
+
+
     // je récupere la réponses de la question précédente pour la comparer à la soumission que je viens de faire 
     // Sinon un décalage se fait et ma réponse se compage à la question nouvelle
 
-    $compteur = $_SESSION['compteur'] - 1;
+$compteur = $_SESSION['compteur'] - 1;
 $idQuestion = $_SESSION['ls_id_question'][$compteur]->id_question;
 $typeReponse = $m->get_type_reponse($idQuestion);
 // réponses recus par la BD avec la requette juste ci-dessus et converti en tableau de string pat la fonction convertValueArrayToString
@@ -120,12 +128,12 @@ $reponseBD = convertValueArrayToString($typeReponse);
 
 // reponses choisies par le joueur envoyé par le formulaire avec la methode post  en tableau de string pat la fonction convertValueArrayToString
 
-    $reponses = convertValueArrayToString($_POST['reponse']);
+    $reponses = convertValueArrayToString($reponsesSelectionnees);
 
     $score= $_SESSION['score'] ;
-    var_dump($_POST['reponse']);
-var_dump($reponses);
-var_dump($reponseBD);
+    // var_dump($_POST['reponse']);
+    var_dump($reponses);
+    // var_dump($reponseBD);
     if($reponses === $reponseBD) {
 
         $score++;
@@ -133,11 +141,11 @@ var_dump($reponseBD);
     } else {
     
             $_SESSION['score'] = $score;
-            // var_dump($_SESSION['score']);
+            echo("le score est de : ".$_SESSION['score']);
         }
     }
 }
 
-    }
+}
 }
 ?>

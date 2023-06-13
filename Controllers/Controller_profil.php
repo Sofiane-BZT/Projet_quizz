@@ -103,21 +103,7 @@ public function action_supp_profil_annulee () {
         }
 }
 
-
-
-
-
-
-
-
-
-	
-
-?> 
-
-
-
-
+?>
 
 
 

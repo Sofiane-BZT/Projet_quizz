@@ -5,15 +5,15 @@
 
   <?php foreach ($reponse as $index => $r) { ?>
     <div>
-      <?php if ($isCheckbox) { var_dump($isCheckbox)?>
+      <?php if ($isCheckbox) { ?>
         
-        <input type="checkbox" name="reponse[]" value="<?= $r->id_reponse ?>">
+        <input type="checkbox" name="reponse[<?= $r->type_reponse ?>]" value="<?= $r->type_reponse ?>">
       <?php } else { ?>
-        <input type="radio" name="reponse[]" value="<?= $r->id_reponse ?>">
+        <input type="radio" name="reponse[<?= $r->type_reponse ?>]" value="<?= $r->type_reponse ?>">
       <?php } ?>
       <label><?= htmlspecialchars($r->intitule_reponse) ?></label>
       
-      <?=var_dump($r)?>
+      
     </div>
   <?php } ?>
   <button type="submit">Valider</button>
