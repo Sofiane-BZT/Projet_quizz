@@ -11,10 +11,10 @@
   <h2>Choisissez un niveau de difficulté</h2>
 </div>
 <div class="card-container">
-    <?php foreach ($niveaux as $niveau) { ?>
+  <?php foreach ($niveaux as $niveau) { ?>
     <button type="button" class="card">
       <a href="?controller=selection&action=init&niveau_question=<?= $niveau->niveau_question ?>">
-        <img src="../Content/assets/img_niveau.jpg" alt="niveau">
+        <img src="../Content/assets/dev_web.png" alt="niveau">
         <div>
           <span><?= $niveau->niveau_question ?></span>
         </div>
@@ -23,5 +23,3 @@
   <?php } ?>
 </div>
 
-
- 
