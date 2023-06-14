@@ -7,11 +7,11 @@
     <div>
       <?php if ($isCheckbox) { ?>
         
-        <input type="checkbox" name="reponse[<?= $r->type_reponse ?>]" value="<?= $r->type_reponse ?>">
+        <input type="checkbox" name="reponse[]" value="<?= $idReponse[$index] ?>">
       <?php } else { ?>
-        <input type="radio" name="reponse[<?= $r->type_reponse ?>]" value="<?= $r->type_reponse ?>">
+        <input type="radio" name="reponse[]" vvalue="<?= $idReponse[$index] ?>">
       <?php } ?>
-      <label><?= htmlspecialchars($r->intitule_reponse) ?></label>
+      <label><?= htmlspecialchars($r) ?></label>
       
       
     </div>

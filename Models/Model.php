@@ -113,20 +113,22 @@ public function get_intitule_question($idQuestion) {
     return $r->fetchColumn();
 }
 
-public function get_intitule_reponse($idQuestion) {
-    $r = $this->bd->prepare("SELECT intitule_reponse , type_reponse, id_reponse FROM reponse WHERE `id_question` = :Id_question");
+public function get_reponse_bd($idQuestion) {
+    $r = $this->bd->prepare("SELECT intitule_reponse, type_reponse, id_reponse FROM reponse WHERE `id_question` = :Id_question");
     // var_dump($idQuestion);
     $r->bindParam(':Id_question', $idQuestion);
     $r->execute();
     return $r->fetchAll(PDO::FETCH_OBJ);
 }
 
-public function get_type_reponse($idQuestion) {
-    $r = $this->bd->prepare("SELECT type_reponse FROM reponse WHERE `id_question` = :Id_question");
+//------------requête pour récupérer les ids des réponse dont le type réponse = 1 selon id de la question--------
+
+public function get_idRepTypeRepUn($idQuestion) {
+    $r = $this->bd->prepare("SELECT id_reponse FROM reponse WHERE `type_reponse`= 1");
     // var_dump($idQuestion);
-    $r->bindParam(':Id_question', $idQuestion);
+
     $r->execute();
-    return $r->fetchAll(PDO::FETCH_OBJ);
+    return $r->fetchAll(PDO::FETCH_COLUMN);
 }
 
 

@@ -78,16 +78,35 @@ class Controller_selection extends Controller
         // var_dump($idQuestion);
         $m = Model::get_model();
         $question = $m->get_intitule_question($idQuestion);
-        $reponse = $m->get_intitule_reponse($idQuestion);
-        // var_dump($reponse);
-        $typeReponse = $m->get_type_reponse($idQuestion);
+        $reponses = $m->get_reponse_bd($idQuestion);
+        // var_dump($reponses);
+        
+        // Récupération des valeurs pour chaque colonne dans la base de donnée
 
-        convertTypeRepToString($typeReponse);
+            $intituleReponses = array_column($reponses, 'intitule_reponse');
+            // var_dump($intituleReponses);
+            $typeReponse = array_column($reponses, 'type_reponse');
+            // var_dump($typeReponse);
+            $idsReponses = array_column($reponses, 'id_reponse');
 
+
+            // Tableau pour stocker les id_reponse dont le type_reponse vaut 1
+
+            $idReponseJusteBd = array(); 
+
+            foreach ($reponses as $reponse) {
+                if ($typeReponse == 1) {
+                    $idReponseJusteBd[] = $reponse['id_reponse'];
+                }
+            }
+
+
+        // information que je fournis à la vue
         $data = [
             "question" => $question,
-            "reponse" => $reponse,
-            "typeRep" => $typeReponse,
+            "reponse" => $intituleReponses,
+            "idReponse" => $idsReponses,
+            // "typeRep" => $typeReponse,
             "isCheckbox" => convertTypeRepToString($typeReponse) > 1
         ];
 
@@ -111,38 +130,53 @@ class Controller_selection extends Controller
         {
 
         // Récupérer les réponses sélectionnées
-        $reponsesSelectionnees = $_POST["reponse"];
-            var_dump($reponsesSelectionnees);
+        $reponsesSelectionneesJoueur = $_POST["reponse"];
+            var_dump($reponsesSelectionneesJoueur);
         // Stocker les réponses sélectionnées dans $_SESSION
-        $_SESSION["reponses_selectionnees"] = $reponsesSelectionnees;
-
-
+     
     // je récupere la réponses de la question précédente pour la comparer à la soumission que je viens de faire 
     // Sinon un décalage se fait et ma réponse se compage à la question nouvelle
 
 $compteur = $_SESSION['compteur'] - 1;
 $idQuestion = $_SESSION['ls_id_question'][$compteur]->id_question;
-$typeReponse = $m->get_type_reponse($idQuestion);
+
+//récupération des id_reponse dont type_rep = 1 selon id de la question posée
+$m = Model::get_model();
+$typeReponseUn[] = $m->get_idRepTypeRepUn($idQuestion);
+
 // réponses recus par la BD avec la requette juste ci-dessus et converti en tableau de string pat la fonction convertValueArrayToString
-$reponseBD = convertValueArrayToString($typeReponse);
 
-// reponses choisies par le joueur envoyé par le formulaire avec la methode post  en tableau de string pat la fonction convertValueArrayToString
+//-------- fonction comparTab qui va compare les deux tableaux
 
-    $reponses = convertValueArrayToString($reponsesSelectionnees);
+ $resultat = comparTab($typeReponseUn, $reponsesSelectionneesJoueur);
 
     $score= $_SESSION['score'] ;
     // var_dump($_POST['reponse']);
-    var_dump($reponses);
+    // var_dump($reponses);
     // var_dump($reponseBD);
-    if($reponses === $reponseBD) {
-
-        $score++;
-        // var_dump($score);
-    } else {
     
-            $_SESSION['score'] = $score;
-            echo("le score est de : ".$_SESSION['score']);
-        }
+    $resultat = comparTab($typeReponseUn, $reponsesSelectionneesJoueur);
+
+// Vérification du résultat de la comparaison
+if ($resultat) {
+    // Les tableaux ont la même longueur et les mêmes id_réponse
+    $score++;
+    echo("le score est de : ".$score);
+} else {
+    // Les tableaux sont différents
+    echo("le score est de : ".$_SESSION['score']);
+}
+
+
+    // if($reponses === $reponseBD) {
+
+    //     $score++;
+    //     // var_dump($score);
+    // } else {
+    
+    //         $_SESSION['score'] = $score;
+    //         echo("le score est de : ".$_SESSION['score']);
+    //     }
     }
 }
 
