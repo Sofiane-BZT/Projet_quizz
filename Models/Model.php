@@ -124,7 +124,8 @@ public function get_reponse_bd($idQuestion) {
 //------------requête pour récupérer les ids des réponse dont le type réponse = 1 selon id de la question--------
 
 public function get_idRepTypeRepUn($idQuestion) {
-    $r = $this->bd->prepare("SELECT id_reponse FROM reponse WHERE `type_reponse`= 1");
+    $r = $this->bd->prepare("SELECT id_reponse FROM reponse WHERE `type_reponse`= 1 AND id_question = :Id_question");
+    $r->bindParam(':Id_question', $idQuestion);
     // var_dump($idQuestion);
 
     $r->execute();

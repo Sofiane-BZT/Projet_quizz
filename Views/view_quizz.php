@@ -9,7 +9,7 @@
         
         <input type="checkbox" name="reponse[]" value="<?= $idReponse[$index] ?>">
       <?php } else { ?>
-        <input type="radio" name="reponse[]" vvalue="<?= $idReponse[$index] ?>">
+        <input type="radio" name="reponse[]" value="<?= $idReponse[$index] ?>">
       <?php } ?>
       <label><?= htmlspecialchars($r) ?></label>
       

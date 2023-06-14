@@ -1,7 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require_once 'Fonctions/convertTypeRepToString.php';
-require_once 'Fonctions/convertValueArrayToString.php';
+require_once 'Fonctions/comparTab.php';
 class Controller_selection extends Controller
 {
 	public function action_default()
@@ -73,10 +76,53 @@ class Controller_selection extends Controller
     
 
     public function action_question_reponse_type_rep() {
+        $m = Model::get_model();
+        if (isset($_POST["reponse"]))
+        {
+        if (!empty($_POST["reponse"]))
+        {
+                // Récupérer les réponses sélectionnées
+                $reponsesSelectionneesJoueur = $_POST["reponse"];
+            // var_dump($reponsesSelectionneesJoueur);
+                // Stocker les réponses sélectionnées dans $_SESSION
+     
+                // je récupere la réponses de la question précédente pour la comparer à la soumission que je viens de faire 
+                // Sinon un décalage se fait et ma réponse se compage à la question nouvelle
+
+                $compteur = $_SESSION['compteur'] - 1;
+                $idQuestion = $_SESSION['ls_id_question'][$compteur]->id_question;
+                var_dump($compteur);
+                var_dump($idQuestion);
+                //récupération des id_reponse dont type_rep = 1 selon id de la question posée
+              
+                $typeReponseUn = $m->get_idRepTypeRepUn($idQuestion);
+                    var_dump($typeReponseUn);
+                // réponses recus par la BD avec la requette juste ci-dessus et converti en tableau de string pat la fonction convertValueArrayToString
+
+                //-------- fonction comparTab qui va compare les deux tableaux
+
+                $resultat = comparTab($typeReponseUn, $reponsesSelectionneesJoueur);
+
+                $score= $_SESSION['score'] ;
+                // var_dump($_POST['reponse']);
+                // var_dump($reponses);
+                // var_dump($reponseBD);
+
+
+                // Vérification du résultat de la comparaison
+                if ($resultat) {
+                // Les tableaux ont la même longueur et les mêmes id_réponse
+                $score++;
+                $_SESSION['score'] = $score;
+   
+            } 
+                    echo("le score est de : ".$_SESSION['score']);
+        }
+    }
 
         $idQuestion = $_SESSION['ls_id_question'][$_SESSION['compteur']]->id_question;
         // var_dump($idQuestion);
-        $m = Model::get_model();
+        
         $question = $m->get_intitule_question($idQuestion);
         $reponses = $m->get_reponse_bd($idQuestion);
         // var_dump($reponses);
@@ -92,13 +138,13 @@ class Controller_selection extends Controller
 
             // Tableau pour stocker les id_reponse dont le type_reponse vaut 1
 
-            $idReponseJusteBd = array(); 
+            // $idReponseJusteBd = array(); 
 
-            foreach ($reponses as $reponse) {
-                if ($typeReponse == 1) {
-                    $idReponseJusteBd[] = $reponse['id_reponse'];
-                }
-            }
+            // foreach ($reponses as $reponse) {
+            //     if ($typeReponse == 1) {
+            //         $idReponseJusteBd[] = $reponse['id_reponse'];
+            //     }
+            // }
 
 
         // information que je fournis à la vue
@@ -124,62 +170,7 @@ class Controller_selection extends Controller
     }
 
 
-    if (isset($_POST["reponse"]))
-    {
-        if (!empty($_POST["reponse"]))
-        {
-
-        // Récupérer les réponses sélectionnées
-        $reponsesSelectionneesJoueur = $_POST["reponse"];
-            var_dump($reponsesSelectionneesJoueur);
-        // Stocker les réponses sélectionnées dans $_SESSION
-     
-    // je récupere la réponses de la question précédente pour la comparer à la soumission que je viens de faire 
-    // Sinon un décalage se fait et ma réponse se compage à la question nouvelle
-
-$compteur = $_SESSION['compteur'] - 1;
-$idQuestion = $_SESSION['ls_id_question'][$compteur]->id_question;
-
-//récupération des id_reponse dont type_rep = 1 selon id de la question posée
-$m = Model::get_model();
-$typeReponseUn[] = $m->get_idRepTypeRepUn($idQuestion);
-
-// réponses recus par la BD avec la requette juste ci-dessus et converti en tableau de string pat la fonction convertValueArrayToString
-
-//-------- fonction comparTab qui va compare les deux tableaux
-
- $resultat = comparTab($typeReponseUn, $reponsesSelectionneesJoueur);
-
-    $score= $_SESSION['score'] ;
-    // var_dump($_POST['reponse']);
-    // var_dump($reponses);
-    // var_dump($reponseBD);
-    
-    $resultat = comparTab($typeReponseUn, $reponsesSelectionneesJoueur);
-
-// Vérification du résultat de la comparaison
-if ($resultat) {
-    // Les tableaux ont la même longueur et les mêmes id_réponse
-    $score++;
-    echo("le score est de : ".$score);
-} else {
-    // Les tableaux sont différents
-    echo("le score est de : ".$_SESSION['score']);
-}
-
-
-    // if($reponses === $reponseBD) {
-
-    //     $score++;
-    //     // var_dump($score);
-    // } else {
-    
-    //         $_SESSION['score'] = $score;
-    //         echo("le score est de : ".$_SESSION['score']);
-    //     }
+  
     }
-}
-
-}
 }
 ?>
