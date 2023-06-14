@@ -3,8 +3,8 @@
 
 function convertTypeRepToString($typeReponse) {
     $typeRep = []; // Tableau pour stocker les valeurs de type_reponse
-    foreach ($typeReponse as $r) {
-        $typeRep[] = strval($r->type_reponse); // Convertit la valeur en chaîne de caractères et l'ajoute dans le tableau
+    foreach ($typeReponse as $tpRep) {
+        $typeRep[] = strval($tpRep); // Convertit la valeur en chaîne de caractères et l'ajoute dans le tableau
     }
 
     // Concaténation des valeurs de $typeRep en une seule chaîne

@@ -5,12 +5,12 @@
   <?php foreach ($reponse as $index => $r) { ?>
     <div class="reponses">
       <?php if ($isCheckbox) { ?>
+        
+        <input type="checkbox" name="reponse[]" value="<?= $idReponse[$index] ?>">
+      <?php } else { ?>      
+        <label><?= htmlspecialchars($r) ?></label>
 
-        <input type="checkbox" name="reponse[<?= $r->type_reponse ?>]" value="<?= $r->type_reponse ?>">
-      <?php } else { ?>
-        <label><?= htmlspecialchars($r->intitule_reponse) ?></label>
-
-        <input type="radio" name="reponse[<?= $r->type_reponse ?>]" value="<?= $r->type_reponse ?>">
+        <input type="radio" name="reponse[]" value="<?= $idReponse[$index] ?>">
       <?php } ?>
       
       
