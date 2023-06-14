@@ -1,15 +1,61 @@
-.profil .container {
+/*--------------------Message profil----------------------*/
+.message_profil div:nth-child(1) {
+  display: flex;
+  justify-content: center;
+}
+
+.message_profil div:nth-child(2) {
+  margin-top: 20px;
+}
+
+.message_profil{
+  height: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: black;
+}
+.choix_theme {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/*--------------------Formulaire profil---------------------*/
+.profil_container{
+  max-width: 500px;
+  background-color: #d8f22f;
+}
+.profil_container >div:first-child{
+display: grid;
+grid-template-rows: 1fr 1fr;
+grid-template-columns: 1fr 1fr;
+justify-items: center; 
+align-items: center; 
+}
+.profil_container >div:nth-child{
+  justify-items: center; 
+  align-items: center; 
+}
+
+/*
+.profil_container{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 60vh;
-  background-color: #72c4df;
+  height:auto;
   border-radius: 20px;
+  background-color: red;
 }
 
-.profil form {
+.profil_form {
   width: 400px;
   text-align: center;
+  background-color: #0fe516;
+
+  border-radius: 10px;
 }
 
 table {
@@ -34,28 +80,41 @@ th {
   background-color: #f7f7f7;
 }
 
-.actions {
-  text-align: center;
-}
-
-.actions-container {
+.btn_container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
-
-.edit-button,
-.delete-button {
+*/
+.btn {
+  display: block;
+  margin: 0 auto;
   padding: 10px 20px;
-  background-color: #f2f2f2;
-  color: #000;
+  background-color: #72c4df;
+  color: #fff;
   border: none;
   border-radius: 5px;
   text-decoration: none;
   cursor: pointer;
+  text-align: center;
 }
-.edit-button:hover,
-.delete-button:hover {
-  background-color: #333;
+
+
+.btn:hover {
+  background-color:rgb(237, 151, 38);
   color: #fff;
+}
+
+@media screen and (max-width: 480px) {
+  form {
+    max-width: 100%;
+  }
+
+  #message_profil h2 {
+    font-size: 24px;
+  }
+
+  #message_profil p {
+    font-size: 16px;
+  }
 }

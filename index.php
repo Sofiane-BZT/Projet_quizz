@@ -14,6 +14,10 @@ session_start();
 	<link rel="stylesheet" href="Content/css/accueil.css">
 	<link rel="stylesheet" href="Content/css/theme.css">
 	<link rel="stylesheet" href="Content/css/profil.css">
+	<link rel="stylesheet" href="Content/css/modif_profil.css">
+	<link rel="stylesheet" href="Content/css/quizz.css">
+
+
 
 	<script src="content/js/script.js" defer></script>
 
