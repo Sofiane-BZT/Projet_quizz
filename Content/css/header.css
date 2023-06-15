@@ -30,17 +30,15 @@ a:hover{
 
 header {
   position: relative;
-  /* -----------------Le padding est desactivé, à reactiver si les images background correspondent------------------ */
-  /* padding: 0 2rem; */
 }
 /* ----------------- Barre de navigation ------------------ */
 
 .navbar {
   width: 100%;
   height: 60px;
-  /* max-width: 1200px; */
   margin: 0 auto;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-content: space-between;
   background-color: rgb(114, 196, 223);
@@ -54,12 +52,14 @@ header {
 
 .navbar .elements_navbar {
 display: flex;
+justify-self: center;
 gap: 2rem;
 }
 /* -----------------<Pseudo et bouton----------------- */
 
 .navbar .btn_log {
   padding-right: 25px;
+  justify-self: right;
 }
 
 .navbar .btn_log span{
@@ -105,7 +105,7 @@ gap: 2rem;
   top: 60px;
   height: 0;
   width: 300px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(109, 91, 91, 0.5);
   backdrop-filter: blur(15px);
   border-radius: 10px;
   overflow: hidden;
@@ -134,33 +134,68 @@ gap: 2rem;
   align-items: center;
   height: 100%;
 }
+/* ------------ Responsive design ------------ */
 
-/* ----------------- Responsive design ------------------ */
-
-@media (min-width: 992px) {
-  .toggle_btn {
-    display: none;
+@media (max-width: 992px) {
+  /* Taille de responsive pour ordinateur */
+  .navbar {
+    grid-template-columns: 1fr 1fr;
   }
-}
-@media(max-width: 991px) {
   .navbar .elements_navbar,
-  .navbar .action_btn {
+  .navbar .btn_log {
     display: none;
   }
   .navbar .toggle_btn {
     display: block;
-   }
-   .dropdown_menu {
-    display: block;
-   }
+    float: right;
+    margin-right: 25px;
   }
-
-@media(max-width: 576px) {
   .dropdown_menu {
-  left: 2rem;
-  width: unset;
+    display: block;
   }
 }
 
+@media (max-width: 768px) {
+  /* Taille de responsive pour tablette */
+  .navbar .elements_navbar,
+  .navbar .btn_log {
+    display: none;
+  }
+  .navbar .toggle_btn {
+    display: block;
+    float: right;
+    margin-right: 25px;
+  }
+  .dropdown_menu {
+    display: block;
+    left: 2rem;
+    width: unset;
+  }
+  .dropdown_menu .btn_log {
+    margin-top: 10px;
+  }
+}
 
-    
+@media (max-width: 576px) {
+  /* Taille de responsive pour mobile */
+  .navbar .elements_navbar,
+  .navbar .btn_log {
+    display: none;
+  }
+  /* Afficher l'icône du menu burger */
+  .toggle_btn {
+    display: block;
+    float: right;
+    margin-right: 15px;
+  }
+  /* Affiche le menu burger */
+  .dropdown_menu {
+    display: block;
+    left: 2rem;
+    width: unset;
+  }
+  .dropdown_menu .btn_log {
+    margin-top: 10px;
+    text-align: center;
+  }
+}

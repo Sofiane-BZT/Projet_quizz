@@ -17,67 +17,17 @@
   text-align: center;
   color: black;
 }
-.choix_theme {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
 
 /*--------------------Formulaire profil---------------------*/
 .profil_container{
   max-width: 500px;
-  background-color: #d8f22f;
+  background-color: #6087dd;
+  margin: auto;
 }
-.profil_container >div:first-child{
-display: grid;
-grid-template-rows: 1fr 1fr;
-grid-template-columns: 1fr 1fr;
-justify-items: center; 
-align-items: center; 
-}
+
 .profil_container >div:nth-child{
   justify-items: center; 
   align-items: center; 
-}
-
-/*
-.profil_container{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height:auto;
-  border-radius: 20px;
-  background-color: red;
-}
-
-.profil_form {
-  width: 400px;
-  text-align: center;
-  background-color: #0fe516;
-
-  border-radius: 10px;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-th,
-td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  background-color: #ddd;
-}
-
-th {
-  background-color: #f2f2f2;
-  text-align: left;
-}
-
-.label-cell {
-  background-color: #f7f7f7;
 }
 
 .btn_container {
@@ -85,10 +35,10 @@ th {
   justify-content: center;
   margin-top: 20px;
 }
-*/
+
 .btn {
-  display: block;
-  margin: 0 auto;
+  display: inline-block;
+  margin: 0 10px;
   padding: 10px 20px;
   background-color: #72c4df;
   color: #fff;
@@ -99,13 +49,12 @@ th {
   text-align: center;
 }
 
-
 .btn:hover {
   background-color:rgb(237, 151, 38);
   color: #fff;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   form {
     max-width: 100%;
   }

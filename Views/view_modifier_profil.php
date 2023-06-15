@@ -18,12 +18,10 @@
           <input type="text" name="pseudo_utilisateur" value="<?= $recuperer_infos_profil->pseudo_utilisateur ?>" required>
         </div>
       </div>
-      
-      <!--<div class="form-group">
+      <div class="form-group">
         <label for="age">Age :</label>
         <input type="int" name="age_utilisateur" value="<?= $recuperer_infos_profil->age_utilisateur ?>" required>
-      </div>-->
-
+      </div>
       <div class="form-group">
         <label for="email">E-mail :</label>
         <input type="email" name="email_utilisateur" value="<?= $recuperer_infos_profil->email_utilisateur ?>" required>

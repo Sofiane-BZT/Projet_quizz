@@ -21,7 +21,6 @@
     </ul>
 
   <!--------------Pseudo et bouton---------------->
-  
   <div class="btn_log">
     <span>Bonjour <?php echo $_SESSION['pseudo']; ?></span>
     
