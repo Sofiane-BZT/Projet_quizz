@@ -2,17 +2,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: calc(100vh - 60px);
   }
   
   .form_modif_profil {
     width: 100%;
     max-width: 400px;
     padding: 20px;
-    background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background-color: #ccc;
+    background-color: #fff;
   }
   
   p {
@@ -30,10 +28,10 @@
     margin-top: 10px;
   }
   
-  label {
+  .modif_profil_label {
     display: block;
     margin-bottom: 5px;
-    font-weight: bold;
+    font-weight: 600;
   }
   
   input {
@@ -44,9 +42,9 @@
     border-radius: 4px;
   }
   
-  @media screen and (max-width: 480px) {
+  @media screen and (max-width: 768px) {
     .form_modif_profil {
-      max-width: 100%;
+      max-width: 80%;
     }
   }
   

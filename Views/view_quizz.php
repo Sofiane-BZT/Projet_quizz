@@ -1,7 +1,7 @@
 <div id="timer">10</div>
 <div class="quizz_container">
   <form class="form_quizz" action="?controller=selection&action=question_reponse_type_rep" method="POST">
-    <p><?= htmlspecialchars($question) ?></p>
+    <p class="p_quizz" ><?= htmlspecialchars($question) ?></p>
 
     <?php foreach ($reponse as $index => $r) { ?>
       <div class="reponses">

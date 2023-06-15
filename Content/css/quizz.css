@@ -5,19 +5,17 @@
   align-items: center;
   height: auto;
   margin-top: 100px;
-  background-color: #5ddf43;
-
 }
 
 .form_quizz {
   background-color: #f3e553;
   padding: 20px;
-  border-radius: 5px;
-  width: 1000px;
+  border-radius: 20px;
+  width: auto;
   margin: 0 auto;
 }
 
-p {
+.form_quizz > p{
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 15px;
@@ -26,7 +24,6 @@ p {
 .reponses {
   display: flex;
   align-items: center;
-  background-color: red;
   justify-content: space-between;
   width: 100%;
   margin: 10px;
@@ -39,7 +36,7 @@ p {
 
 .label_quizz {
   font-size: 16px;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 
 button {
@@ -60,7 +57,7 @@ button {
 }
 
 .button-container button:hover {
-  background-color: darkgray;
+  background-color: rgb(238, 21, 21);
 }
 
 @media (max-width: 600px) {

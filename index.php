@@ -17,6 +17,8 @@ session_start();
 	<link rel="stylesheet" href="Content/css/modif_profil.css">
 	<link rel="stylesheet" href="Content/css/quizz.css">
 	<link rel="stylesheet" href="Content/css/timer.css">
+	<link rel="stylesheet" href="Content/css/conf_modif.css">
+
 	
 
 	<script src="content/js/script.js" defer></script>

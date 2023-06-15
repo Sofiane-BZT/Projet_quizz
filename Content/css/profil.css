@@ -20,12 +20,27 @@
 
 /*--------------------Formulaire profil---------------------*/
 .profil_container{
-  max-width: 500px;
-  background-color: #6087dd;
-  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
 
-.profil_container >div:nth-child{
+.form_profil {
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.form_profil label{
+  font-weight:600;
+  display: block;
+  background-color: #bbe5f3;
+}
+
+.profil_container > div:nth-child{
   justify-items: center; 
   align-items: center; 
 }

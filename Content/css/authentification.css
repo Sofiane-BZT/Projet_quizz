@@ -1,10 +1,10 @@
-.container {
+.authentification_container {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
 }
 
-label {
+.authentification_label {
   display: block;
   margin: 1rem 0;
 }
