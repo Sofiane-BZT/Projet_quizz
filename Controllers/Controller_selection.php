@@ -163,7 +163,7 @@ class Controller_selection extends Controller
     if ($_SESSION['compteur'] >= count($_SESSION['ls_id_question'])) {
         // Toutes les questions ont été affichées
 
-        $m->get_stk_resut_partie($_SESSION['theme'], $_SESSION['niveau_question'], $_SESSION['score']);
+        // $m->get_stk_resut_partie($_SESSION['theme'], $_SESSION['niveau_question'], $_SESSION['score']);
         $this->render("score_final");
 
         // action pour stocker le theme, niveau, score 
