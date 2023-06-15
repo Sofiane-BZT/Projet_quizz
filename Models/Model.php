@@ -47,28 +47,28 @@
 
 //----------------------------------------Authentification---------------------------------
 
-public function get_authentification ($pseudo, $motDePasse) {
-
-    $r = $this->bd->prepare("SELECT * FROM utilisateur WHERE pseudo_utilisateur=:pseudoUtilisateur And mdp_utilisateur=:mdpUtilisateur");
-    $r->bindValue(':pseudoUtilisateur', $pseudo);
-    $r->bindValue(':mdpUtilisateur', $motDePasse);
+public function get_authentification($pseudo)
+{
+    $r = $this->bd->prepare("SELECT * FROM utilisateur WHERE pseudo_utilisateur = :pseudo");
+    $r->bindValue(':pseudo', $pseudo);
     $r->execute();
-
-    return $r->fetch(PDO::FETCH_OBJ) ;
+    return $r->fetch(PDO::FETCH_OBJ);
 }
 
 // -------------------------------------------Inscription---------------------------------------
 
-public function get_inscription ($pseudo, $email, $motDePasse, $role){
+public function get_inscription ($prenom, $pseudo, $age, $email, $hashedPassword){
 
-    $r = $this->bd->prepare("INSERT INTO `utilisateur` (pseudo_utilisateur, email_utilisateur, mdp_utilisateur, role_utilisateur)
-    VALUE (:Pseudo_utilisateur, :Email_utilisateur, :Mdp_utilisateur , :Role_utilisateur)");
-
+    $r = $this->bd->prepare("INSERT INTO `utilisateur` (prenom_utilisateur, pseudo_utilisateur, age_utilisateur, email_utilisateur, mdp_utilisateur)
+    VALUE (:Prenom_utilisateur, :Pseudo_utilisateur, :Age_utilisateur, :Email_utilisateur, :Mdp_utilisateur)");
+    
+    $r->bindValue(':Prenom_utilisateur', $prenom);
     $r->bindValue(':Pseudo_utilisateur', $pseudo);
+    $r->bindValue(':Age_utilisateur', $age);
     $r->bindValue(':Email_utilisateur', $email);
-    $r->bindValue(':Mdp_utilisateur', $motDePasse);
-    $r->bindValue(':Role_utilisateur', $role );
+    $r->bindValue(':Mdp_utilisateur', $hashedPassword);
 
+ var_dump($r);
     $r->execute();
 
     return $r->fetchall(PDO::FETCH_OBJ);

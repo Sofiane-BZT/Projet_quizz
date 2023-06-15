@@ -13,9 +13,9 @@
 
   <!--------------Barre de navigation---------------->
   <div class="navbar">
-    <div class="logo"><a href="#">QCM SS</a></div>
+    <div class="logo" href="?controller=accueil&action=accueil"><a href="#">QCM SS</a></div>
     <ul class="elements_navbar">
-        <li><a href="accueil">Accueil</a></li>
+        <li><a href="?controller=accueil&action=accueil">Accueil</a></li>
         <li><a href="historique">Historique</a></li>
         <li><a class="dropdown-item" href="?controller=profil&action=all_infos_profil">Profil</a></li>
     </ul>
