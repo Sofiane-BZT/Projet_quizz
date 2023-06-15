@@ -35,5 +35,5 @@ updateTimer();
 
 // Fonction pour soumettre le formulaire
 function submitForm() {
-  document.getElementById("form_quizz").submit();
+  document.getElementById(".form_quizz").submit();
 }
