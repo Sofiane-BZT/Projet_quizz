@@ -12,33 +12,28 @@ function openMenu() {
   toggleBtnIcon.classList = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
 }
 
-// // -------------------------------------HEADER---------------------------------------
+// ------------------------------Timer-----------------------------------
 
-// function toggleMenu() {
-//   var menu = document.getElementById("menu");
-//   menu.classList.toggle("active");
-// }
+let timerElement = document.getElementById("timer");
+let countdown = 10; // Durée en secondes
 
-// function selectTheme(themeId) {
-//   document.getElementById("theme").value = themeId;
-// }
+// Fonction pour mettre à jour le minuteur
+function updateTimer() {
+  timerElement.textContent = countdown;
+  countdown--;
 
-// ------------------------------couleur autour de la carte thème sélectionnée-------------
+  // Vérifier si le minuteur est arrivé à zéro
+  if (countdown < 0) {
+    submitForm(); // Soumettre le formulaire
+  } else {
+    setTimeout(updateTimer, 1000); // Appeler la fonction updateTimer() toutes les 1 seconde
+  }
+}
 
-// function selectTheme(card) {
-//   // Retire la classe 'selected' de tous les autres éléments
-//   var cards = document.querySelectorAll(".card");
-//   cards.forEach(function (card) {
-//     card.classList.remove("selected");
-//   });
+// Démarrer le minuteur au chargement de la page
+updateTimer();
 
-//   // Ajoute la classe 'selected' à la carte sélectionnée
-//   card.classList.add("selected");
-// }
-
-// // Soumet le formulaire lorsque le bouton "Commencer la partie" est cliqué
-// document
-//   .querySelector('#themeForm button[type="submit"]')
-//   .addEventListener("click", function () {
-//     document.querySelector("#themeForm").submit();
-//   });
+// Fonction pour soumettre le formulaire
+function submitForm() {
+  document.getElementById("form_quizz").submit();
+}
