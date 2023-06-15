@@ -38,8 +38,12 @@
   font-weight:600;
   display: block;
   background-color: #bbe5f3;
+  padding: 5px;
 }
 
+.form_profil span{
+  padding: 10px;
+}
 .profil_container > div:nth-child{
   justify-items: center; 
   align-items: center; 
