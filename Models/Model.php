@@ -132,6 +132,22 @@ public function get_idRepTypeRepUn($idQuestion) {
     return $r->fetchAll(PDO::FETCH_COLUMN);
 }
 
+// ---------------------------------Stockage du theme, niveau, score à la fin de la partie---------------
+
+public function get_stk_resut_partie ($idUtilisateur, $theme, $niveau, $score){
+
+    $r = $this->bd->prepare("INSERT INTO `choisi` (id_utilisateur, id_theme, niveau, score, date_choix)
+    VALUE (:Id_utilisateur, :Id_theme, :Niveau, :Score , :Role_utilisateur, NOW())");
+
+    $r->bindValue(':Id_utilisateur', $idUtilisateur); 
+    $r->bindValue(':Id_theme', $theme); 
+    $r->bindValue(':Niveau', $niveau);
+    $r->bindValue(':Score', $score);
+
+    $r->execute();
+
+    return $r->fetchAll(PDO::FETCH_OBJ);
+}
 
 //--------------------------------Afficher informations sur le profil connecté-----------------------------------
 

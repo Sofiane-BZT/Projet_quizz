@@ -1,7 +1,7 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 require_once 'Fonctions/convertTypeRepToString.php';
 require_once 'Fonctions/comparTab.php';
@@ -76,30 +76,33 @@ class Controller_selection extends Controller
     
 
     public function action_question_reponse_type_rep() {
+        
         $m = Model::get_model();
         if (isset($_POST["reponse"]))
         {
         if (!empty($_POST["reponse"]))
         {
-                // Récupérer les réponses sélectionnées
+                // Récupération des réponses sélectionnées par le joueur
                 $reponsesSelectionneesJoueur = $_POST["reponse"];
-            // var_dump($reponsesSelectionneesJoueur);
-                // Stocker les réponses sélectionnées dans $_SESSION
+                // var_dump($reponsesSelectionneesJoueur);
+                // Stockage des réponses sélectionnées dans $_SESSION
      
-                // je récupere la réponses de la question précédente pour la comparer à la soumission que je viens de faire 
-                // Sinon un décalage se fait et ma réponse se compage à la question nouvelle
+                /* je récupere la réponses de la question précédente pour la comparer à la soumission que je viens de faire 
+                Sinon un décalage se fait et ma réponse se compage à la question nouvelle */
 
                 $compteur = $_SESSION['compteur'] - 1;
                 $idQuestion = $_SESSION['ls_id_question'][$compteur]->id_question;
                 var_dump($compteur);
                 var_dump($idQuestion);
+
                 //récupération des id_reponse dont type_rep = 1 selon id de la question posée
               
                 $typeReponseUn = $m->get_idRepTypeRepUn($idQuestion);
                     var_dump($typeReponseUn);
+
                 // réponses recus par la BD avec la requette juste ci-dessus et converti en tableau de string pat la fonction convertValueArrayToString
 
-                //-------- fonction comparTab qui va compare les deux tableaux
+                //fonction comparTab qui va compare les deux tableaux
 
                 $resultat = comparTab($typeReponseUn, $reponsesSelectionneesJoueur);
 
@@ -111,7 +114,7 @@ class Controller_selection extends Controller
 
                 // Vérification du résultat de la comparaison
                 if ($resultat) {
-                // Les tableaux ont la même longueur et les mêmes id_réponse
+                // Les tableaux ont la même longueur et les mêmes "id_reponse"
                 $score++;
                 $_SESSION['score'] = $score;
    
@@ -147,7 +150,7 @@ class Controller_selection extends Controller
             // }
 
 
-        // information que je fournis à la vue
+        // informations que je fournis à la vue
         $data = [
             "question" => $question,
             "reponse" => $intituleReponses,
@@ -161,16 +164,21 @@ class Controller_selection extends Controller
 
     // Vérifier si toutes les questions ont été affichées
     if ($_SESSION['compteur'] >= count($_SESSION['ls_id_question'])) {
-        // Toutes les questions ont été affichées, vous pouvez afficher un message de fin de quizz ou rediriger vers une autre page
-        $this->render("accueil");
+        // Toutes les questions ont été affichées
+
+        $m->get_stk_resut_partie($_SESSION['theme'], $_SESSION['niveau_question'], $_SESSION['score']);
+        $this->render("score_final");
+
+        // action pour stocker le theme, niveau, score 
+
+        
+
     } else {
-        // Il reste des questions, afficher la prochaine question
+        // Il reste des questions, affichage la prochaine question
         $this->render("quizz", $data);
 
     }
 
-
-  
     }
 }
 ?>
