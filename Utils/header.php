@@ -13,7 +13,7 @@
 
   <!--------------Barre de navigation---------------->
   <div class="navbar">
-    <div class="logo" href="?controller=accueil&action=accueil"><a href="#">QCM SS</a></div>
+    <div class="logo" href="?controller=accueil&action=accueil"><a  href="#">QCM SS</a></div>
     <ul class="elements_navbar">
         <li><a href="?controller=accueil&action=accueil">Accueil</a></li>
         <li><a href="historique">Historique</a></li>

@@ -12,7 +12,6 @@ body{
   background-position: center;
 }
 
-
 li{
   list-style: none;
 }
@@ -25,7 +24,6 @@ a{
 
 a:hover{
   color:rgb(237, 151, 38);
-  /* font-weight: bold; */
 }
 
 header {
@@ -55,7 +53,7 @@ display: flex;
 justify-self: center;
 gap: 2rem;
 }
-/* -----------------<Pseudo et bouton----------------- */
+/* -----------------Pseudo et bouton----------------- */
 
 .navbar .btn_log {
   padding-right: 25px;
@@ -93,6 +91,7 @@ gap: 2rem;
 .action_btn:active{
   scale: 0.95;
 }
+/* ----------------- Barre de navigation ------------------ */
 
 /* ----------------- Menu deroulant ------------------ */
 

@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Inscription</h1>
+    <h1>S'incsrire</h1>
     <form action="?controller=inscription&action=inscription" method="post">
       
       <div class="form-group">
