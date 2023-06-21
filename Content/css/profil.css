@@ -1,4 +1,8 @@
 /*--------------------Message profil----------------------*/
+
+.message_profil{
+  margin-top: 20px;
+}
 .message_profil div:nth-child(1) {
   display: flex;
   justify-content: center;
@@ -8,8 +12,8 @@
   margin-top: 20px;
 }
 
-.message_profil{
-  height: 25vh;
+.message_profil {
+  /* height: 25vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,12 +22,18 @@
   color: black;
 }
 
+.message_profil h2 {
+  font-size: 24px; /* Modifier la taille de police pour le format mobile */
+  word-wrap: break-word; /* Permettre au texte de passer à la ligne si nécessaire */
+}
+
 /*--------------------Formulaire profil---------------------*/
-.profil_container{
+.profil_container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: auto;
+  margin-top: 20px; /* Ajouter un espace entre "message_profil" et "profil_container" */
 }
 
 .form_profil {
@@ -34,19 +44,20 @@
   background-color: #fff;
 }
 
-.form_profil label{
-  font-weight:600;
+.form_profil label {
+  font-weight: 600;
   display: block;
-  background-color: #bbe5f3;
+  background-color: #e9e9e9;
   padding: 5px;
 }
 
-.form_profil span{
+.form_profil span {
   padding: 10px;
 }
-.profil_container > div:nth-child{
-  justify-items: center; 
-  align-items: center; 
+
+.profil_container > div:nth-child {
+  justify-items: center;
+  align-items: center;
 }
 
 .btn_container {
@@ -69,7 +80,7 @@
 }
 
 .btn:hover {
-  background-color:rgb(237, 151, 38);
+  background-color: rgb(237, 151, 38);
   color: #fff;
 }
 
@@ -78,11 +89,25 @@
     max-width: 100%;
   }
 
-  #message_profil h2 {
-    font-size: 24px;
+  @media screen and (max-width: 768px) {
+    .message_profil {
+      margin-top: 1rem; /* Ajouter un espace de 20 pixels entre la navbar et la div message_profil */
+    }
   }
 
-  #message_profil p {
-    font-size: 16px;
+  .message_profil h2 {
+    font-size: 16px; /* Réduire la taille de police pour le format mobile */
+  }
+
+  .message_profil p {
+    font-size: 14px; /* Réduire la taille de police pour le format mobile */
+  }
+
+  .profil_container {
+    flex-wrap: wrap; /* Permettre aux éléments de la div de passer à la ligne si nécessaire */
+  }
+
+  .form_profil {
+    margin-top: 10px; /* Réduire l'espace entre "message_profil" et "profil_container" */
   }
 }

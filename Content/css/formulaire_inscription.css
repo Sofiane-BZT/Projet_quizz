@@ -1,7 +1,10 @@
-.container {
+.inscription_container {
   max-width: 500px;
   margin: 0 auto;
   padding: 20px;
+  background-color:#fff;
+  border-radius: 20px;
+  height: auto;
 }
 
 .form-group {

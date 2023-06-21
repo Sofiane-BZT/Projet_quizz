@@ -1,5 +1,5 @@
-<div class="container">
-    <h1>S'incsrire</h1>
+<div class="inscription_container">
+    <h1>Inscription</h1>
     <form action="?controller=inscription&action=inscription" method="post">
       
       <div class="form-group">
@@ -25,7 +25,7 @@
 
       <div class="form-group">
         <div class="buttons">
-          <button type="submit" class="btn">Inscription</button>
+          <button type="submit" class="btn">S'inscrire</button>
           <a class="btn" href="?controller=authentification&action=formulaire_authentification">Retour</a>
         </div>
       </div>

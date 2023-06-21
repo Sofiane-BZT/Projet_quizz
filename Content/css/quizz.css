@@ -1,9 +1,8 @@
-
+/* Common styles */
 .quizz_container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: auto;
   margin-top: 100px;
 }
 
@@ -15,7 +14,7 @@
   margin: 0 auto;
 }
 
-.form_quizz > p{
+.form_quizz > p {
   font-size: 18px;
   line-height: 1.5;
   margin-bottom: 15px;
@@ -29,7 +28,7 @@
   margin: 10px;
 }
 
-.reponses > input{
+.reponses > input {
   width: min-content;
   margin: 0 20px;
 }
@@ -58,11 +57,49 @@ button {
 }
 
 .button-container button:hover {
-  background-color: #ED9726;
+  background-color: #ed9726;
 }
 
-@media (max-width: 600px) {
-  form {
-    width: 90%;
+/* Media queries for responsiveness */
+
+/* Desktop */
+@media screen and (max-width: 1440px) {
+  .form_quizz {
+  }
+}
+
+/* Laptop */
+@media screen and (max-width: 1024px) {
+  .form_quizz {
+
+  }
+}
+
+/* Tablet */
+@media screen and (max-width: 768px) {
+  .form_quizz {
+
+  }
+}
+
+/* Mobile L */
+@media screen and (max-width: 425px) {
+  .form_quizz {
+
+  }
+  button {
+    font-size: 14px;
+  }
+}
+
+/* Mobile M */
+@media screen and (max-width: 375px) {
+  .form_quizz {
+  }
+}
+
+/* Mobile S */
+@media screen and (max-width: 320px) {
+  .form_quizz {
   }
 }

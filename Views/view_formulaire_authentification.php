@@ -1,4 +1,4 @@
-<div class="authentication-container">
+<div class="authentication_container">
   <h1>Connexion</h1>
   <form action="?controller=authentification&action=authentification" method="post">
     <div class="form-group">

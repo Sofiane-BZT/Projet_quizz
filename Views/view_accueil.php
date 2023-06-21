@@ -1,7 +1,5 @@
-<main>
-  <section id="hero">
-    <h1>Bienvenue</h1>
-    <h3>Ici il y aura le choix du thème, du niveau et pour commencer la partie.</h3>
-    <a class="btn_afficher_theme btn" href="?controller=selection&action=all_themes">Afficher les thèmes</a>
-  </section>
-</main>
+<section class="rules_container">
+    <h1 class="centered_heading">Règles du QCM</h1>
+    <div id="rules"></div>
+<a class="btn_afficher_theme btn mobile" href="?controller=selection&action=all_themes">Commencer le QCM</a>
+</section>

@@ -1,20 +1,19 @@
 <section id="message_theme">
-  <div>
+ <div>
     <h1>Bienvenue dans le royaume des esprits geek de l'informatique !</h1>
   </div>
   <div>
-    <p>Explorez notre palette de thèmes et testez vos connaissances dans un QCM qui mettra à l'épreuve<br>votre sagesse binaire et votre passion pour les octets virtuels.</p>
+    <p><br>Opter pour le niveau facile et effleurer la surface des connaissances, ou plonger dans le défi du niveau difficile et repousser vos limites intellectuelles.<br>Quelle voie oserez-vous emprunter pour tester vos compétences au maximum ?</p>
   </div>
 </section>
 
 <div class="choix_theme">
   <h2>Choisissez un niveau de difficulté</h2>
-</div>
+</div> 
 <div class="card-container">
   <?php foreach ($niveaux as $niveau) { ?>
     <button type="button" class="card">
       <a href="?controller=selection&action=init&niveau_question=<?= $niveau->niveau_question ?>">
-        <img src="../Content/assets/dev_web.png" alt="niveau">
         <div>
           <span><?= $niveau->niveau_question ?></span>
         </div>

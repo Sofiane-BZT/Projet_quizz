@@ -2,9 +2,11 @@
   <div>
     <h2>Bienvenue dans le royaume des esprits geek de l'informatique !</h2>
   </div>
-  <div>
-    <p>Explorez notre palette de thèmes et testez vos connaissances dans un QCM qui mettra à l'épreuve<br>votre sagesse binaire et votre passion pour les octets virtuels.</p>
-  </div>
+  <div class="message-content">
+  <!-- <p>Explorez notre palette de thèmes et testez vos connaissances dans un QCM qui mettra à l'épreuve votre sagesse binaire et votre passion pour les octets virtuels.</p> -->
+  <p>Choisir entre le développement web et la culture générale web/informatique, c'est comme décider entre devenir le maître des codes ou l'explorateur des connaissances numériques.</p>
+</div>
+
 </section>
 
 <div class="choix_theme">

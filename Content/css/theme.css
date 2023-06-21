@@ -6,6 +6,8 @@
 
 #message_theme div:nth-child(2) {
   margin-top: 20px;
+  max-width: 850px;
+
 }
 
 #message_theme{
@@ -17,63 +19,101 @@
   text-align: center;
   color: black;
 }
+
 .choix_theme {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px; /* Ajustez la valeur en fonction de l'espacement souhaité */
+  margin-bottom: 20px; 
 }
 
 .card {
-    width: 350px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px; /* Ajustez la valeur en fonction de l'espacement souhaité */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color:rgb(114, 196, 223);
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
+  width: 350px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color:rgb(114, 196, 223);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 
 .card:hover{
   background-color:rgb(237, 151, 38);
 }
-  .card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+  
+.card-content {
+  padding: 10px;
+  text-align: center;
+}
+  
+.card-content span {
+  margin: 0 auto;
+  font-size: 14px;
+  color: blue;
+}
+  
+.card.selected {
+  border: 2px solid blue;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-container .intitule_theme{
+  color: rgb(232, 232, 232);
+}
+
+/* Styles pour les appareils de bureau (à partir de 1440px) */
+@media (max-width: 1439px) {
+  /* Ajoutez ici les styles spécifiques pour les appareils de bureau */
+}
+
+/* Styles pour les laptops et les appareils de taille intermédiaire (jusqu'à 1023px) */
+@media (max-width: 1023px) {
+  /* Ajoutez ici les styles spécifiques pour les laptops et les appareils de taille intermédiaire */
+}
+
+/* Styles pour les tablettes (jusqu'à 767px) */
+@media (max-width: 767px) {
+  /* Ajoutez ici les styles spécifiques pour les tablettes */
+}
+
+/* Styles pour les appareils de bureau (à partir de 728px) */
+@media (min-width: 728px) {
+  h2 {
+    font-size: 24px; /* Ajoutez ici la taille de police souhaitée pour h2 */
   }
   
-  .card-content {
-    padding: 10px;
-    text-align: center;
+  p {
+    font-size: 16px; /* Ajoutez ici la taille de police souhaitée pour p */
   }
-  
-  .card-content span {
-    margin: 0 auto;
-    font-size: 14px;
-    color: blue;
-  }
-  
-  .card.selected {
-    border: 2px solid blue;
-  }
+}
 
-  .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 
-  .card-container .intitule_theme{
-    color: rgb(232, 232, 232);
-  }
+/* Styles pour les mobiles en taille L (jusqu'à 424px) */
+@media (max-width: 424px) {
+  /* Ajoutez ici les styles spécifiques pour les mobiles en taille L */
+}
 
-  @media (max-width: 992px) {
-    .card {
-      width: 100%;
-    }
-  }
+/* Styles pour les mobiles en taille M (jusqu'à 374px) */
+@media (max-width: 374px) {
+  /* Ajoutez ici les styles spécifiques pour les mobiles en taille M */
+}
+
+/* Styles pour les mobiles en taille S (jusqu'à 320px) */
+@media (max-width: 320px) {
+  /* Ajoutez ici les styles spécifiques pour les mobiles en taille S */
+}
