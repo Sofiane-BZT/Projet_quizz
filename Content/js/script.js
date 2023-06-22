@@ -1,45 +1,48 @@
 // ------------------------------Affichage des regles de jeu et du start qcm-----------------------------------
-
 window.onload = function() {
   let rulesDiv = document.getElementById('rules');
   let startButton = document.getElementById('startButton');
 
   let rulesText = `
-  <h2>1. Objectif</h2>
-  <p>Ce Questionnaire à Choix Multiples est conçu pour évaluer vos connaissances et compétences en développement web et culture générale web/informatique.</p>
+  <div class="rule">
+  <h2>1. Format</h2>
+    <ul>
+      <li>Le QCM est composé d'un ensemble de questions auxquelles vous devez répondre en choisissant parmi plusieurs options.
+      Chaque question à une ou plusieurs réponses, vrai ou fausse. Vous devez sélectionner la réponse qui vous semble la plus appropriée.</li>
+    </ul>
+  </div>
   
-  <h2>2. Format</h2>
-  <p>Le QCM est composé d'un ensemble de questions auxquelles vous devez répondre en choisissant parmi plusieurs options. Chaque question à une ou plusieurs réponses, vrai ou fausse.</p>
-  <p>Vous devez sélectionner la réponse qui vous semble la plus appropriée.</p>
+  <div class="rule">
+  <h2>2. Durée</h2>
+    <p>Le QCM est limité dans le temps, vous disposez de 20 secondes par question.
+    Si vous ne répondez pas avant la fin du temps imparti, vous passerez à la question suivante.</p>
+  </div>
   
-  <h2>3. Durée</h2>
-  <p>Le QCM est limité dans le temps, vous disposez de 20 secondes par questions.</p>
-  <p>Si vous ne répondez pas avant la fin du temps impartie, vous passerez à la question suivante.</p>
-  
-  <h2>4. Procédure</h2>
-  <ul>
+  <div class="rule">
+  <h2>3. Procédure</h2>
+    <ul>
       <li>Lisez attentivement chaque question et les options de réponse.</li>
       <li>Sélectionnez la ou les réponses que vous estimez être la plus appropriée en cochant la case correspondante.</li>
       <li>Vous pouvez modifier votre réponse avant de passer à la question suivante.</li>
-  </ul>
-  
-  <h2>5. Évaluation</h2>
-  <p>Une fois le QCM terminé, vos réponses seront évaluées automatiquement. Vous pouvez retrouver vos QCM terminés et également reprendre ceux qui ont étés mis en pause.</p>
-  
-  <h2>6. Conseils</h2>
-  <ul>
+    </ul>
+  </div>
+
+  <div class="rule">
+  <h2>4. Évaluation</h2>
+  <p>Une fois le QCM terminé, vos réponses seront évaluées automatiquement. Vous pouvez retrouver vos QCM terminés et également reprendre ceux qui ont été mis en pause dans votre historique.</p>
+  </div>
+
+  <div class="rule">
+  <h2>5. Conseils</h2>
+    <ul>
       <li>Lisez attentivement chaque question avant de choisir une réponse.</li>
       <li>Évitez de passer trop de temps sur une seule question. Si vous êtes incertain, faites votre meilleure estimation et passez à la question suivante.</li>
-      <li>Vérifiez vos réponses avant de soumettre le QCM.</li>
-  </ul>
-`;
+    </ul>
+  </div>
+`
+;
 
   rulesDiv.innerHTML = rulesText;
-
-  startButton.onclick = function() {
-      // Redirigez l'utilisateur vers la page du QCM
-      window.location.href = "lien_vers_le_qcm";
-  };
 };
 
 // -------------------------------------Ouvrir le menu deroulant---------------------------------------
@@ -129,4 +132,3 @@ function validatePassword() {
   
   return true;
 }
-

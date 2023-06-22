@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Modification du profil</title>
-  <link rel="stylesheet" type="text/css" href="modif_profil.css">
-</head>
-<body>
   <div class="container_modif_profil">
     <form class="form_modif_profil" action='?controller=profil&action=modifier_profil' method="post">
       <p>Modifier votre profil</p>
@@ -29,5 +22,3 @@
       <a class="btn" href='?controller=profil&action=conf_modif_profil'>Enregistrer les modifications</a>
     </form>
   </div>
-</body>
-</html>

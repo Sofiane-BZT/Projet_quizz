@@ -3,10 +3,6 @@
 .message_profil{
   margin-top: 20px;
 }
-.message_profil div:nth-child(1) {
-  display: flex;
-  justify-content: center;
-}
 
 .message_profil div:nth-child(2) {
   margin-top: 20px;

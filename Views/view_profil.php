@@ -1,10 +1,5 @@
 <div class="message_profil">
-  <div>
-    <h2>Bienvenue sur votre profil ! </h2>
-  </div>
-  <div>
-    <p>Explorez et gérez vos informations en toute simplicité. <br> Profitez pleinement de votre expérience sur notre site !</p>
-  </div>
+    <h2>Bienvenue sur votre profil !</h2>
 </div>
 
 <div class="profil_container">

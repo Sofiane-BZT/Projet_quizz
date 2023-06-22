@@ -1,13 +1,13 @@
 <section id="message_theme">
- <div>
-    <h1>Bienvenue dans le royaume des esprits geek de l'informatique !</h1>
-  </div>
   <div>
-    <p><br>Opter pour le niveau facile et effleurer la surface des connaissances, ou plonger dans le défi du niveau difficile et repousser vos limites intellectuelles.<br>Quelle voie oserez-vous emprunter pour tester vos compétences au maximum ?</p>
+    <h2>Bienvenue dans le royaume des esprits geek de l'informatique !</h2>
   </div>
+  <div class="message-content">
+  <p>Opter pour le niveau facile et effleurer la surface des connaissances, ou plonger dans le défi du niveau difficile et repousser vos limites intellectuelles. Quelle voie oserez-vous emprunter pour tester vos compétences au maximum ?</p>
+</div>
 </section>
 
-<div class="choix_theme">
+<div class="choix_niveau">
   <h2>Choisissez un niveau de difficulté</h2>
 </div> 
 <div class="card-container">

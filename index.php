@@ -19,6 +19,7 @@ error_reporting(E_ALL);
 	<link rel="stylesheet" href="Content/css/formulaire_inscription.css">
 	<link rel="stylesheet" href="Content/css/accueil.css">
 	<link rel="stylesheet" href="Content/css/theme.css">
+	<link rel="stylesheet" href="Content/css/niveau.css">
 	<link rel="stylesheet" href="Content/css/profil.css">
 	<link rel="stylesheet" href="Content/css/modif_profil.css">
 	<link rel="stylesheet" href="Content/css/quizz.css">
