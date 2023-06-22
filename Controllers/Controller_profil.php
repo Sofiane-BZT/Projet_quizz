@@ -34,7 +34,7 @@ public function action_recuperer_infos_profil () {
     $idUtilisateur = $_GET['id'];
     $m = Model::get_model();
     $data=["recuperer_infos_profil"=>$m->get_recuperer_infos_profil($idUtilisateur)];
-    // var_dump($data["recuperer_infos_profil"]->id_utilisateur); 
+    var_dump($data["recuperer_infos_profil"]->id_utilisateur); 
     $this->render("modifier_profil",$data);
 
 }
@@ -48,17 +48,18 @@ public function action_conf_modif_profil () {
 
 public function action_modifier_profil () {
 
-    // $idmdubuttonhidden  = $_POST["idmHidden"];
     $idUtilisateur = $_SESSION['id_utilisateur'];
-
-        if (isset($_POST["pseudo_utilisateur"]) AND isset($_POST["email_utilisateur"]))
+    var_dump($idUtilisateur);
+        if (isset($_POST["prenom_utilisateur"]) AND isset($_POST["pseudo_utilisateur"]) AND isset($_POST["age_utilisateur"]) AND isset($_POST["email_utilisateur"]))
         {
-            if (!empty($_POST["pseudo_utilisateur"]) AND !empty($_POST["email_utilisateur"]))
+            if (!empty($_POST["prenom_utilisateur"]) AND !empty($_POST["pseudo_utilisateur"]) AND !empty($_POST["age_utilisateur"]) AND !empty($_POST["email_utilisateur"]))
             {
+                $prenomUtilisateur = $_POST["prenom_utilisateur"];
                 $pseudoUtilisateur = $_POST["pseudo_utilisateur"];
+                $ageUtilisateur = $_POST["age_utilisateur"];
                 $emailUtilisateur = $_POST["email_utilisateur"];
                 $m = Model::get_model();
-                $m->get_modifier_profil($pseudoUtilisateur, $emailUtilisateur, $idUtilisateur);
+                $m->get_modifier_profil($prenomUtilisateur, $pseudoUtilisateur, $ageUtilisateur, $emailUtilisateur, $idUtilisateur);
                 // $this->render("modifier_profil",$data);
 
                 // Mise à jours afin que le nouveau pseudo soit directement affiché dans le header
