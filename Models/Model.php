@@ -68,9 +68,8 @@ public function get_inscription ($prenom, $pseudo, $age, $email, $hashedPassword
     $r->bindValue(':Email_utilisateur', $email);
     $r->bindValue(':Mdp_utilisateur', $hashedPassword);
 
- var_dump($r);
+//  var_dump($r);
     $r->execute();
-
     return $r->fetchall(PDO::FETCH_OBJ);
 }
 
@@ -174,22 +173,25 @@ public function get_recuperer_infos_profil($idUtilisateur) {
 
 //----------------------------------------Modifier profil-------------------------------------------------
 
-public function get_modifier_profil($pseudoUtilisateur, $emailUtilisateur, $idUtilisateur) {
+public function get_modifier_profil($prenomUtilisateur, $pseudoUtilisateur, $ageUtilisateur, $emailUtilisateur, $idUtilisateur) {
 
-    $r = $this->bd->prepare("UPDATE `utilisateur` SET pseudo_utilisateur=:pseudoUtilisateur, email_utilisateur=:emailUtilisateur WHERE `id_utilisateur`= $idUtilisateur");
-    $r->bindValue(':pseudoUtilisateur', $pseudoUtilisateur);
-    $r->bindValue(':emailUtilisateur', $emailUtilisateur);
+    $r = $this->bd->prepare("UPDATE `utilisateur` SET prenom_utilisateur=:prenom_utilisateur, pseudo_utilisateur=:pseudo_utilisateur, age_utilisateur=:age_utilisateur, email_utilisateur=:email_utilisateur WHERE `id_utilisateur`= $idUtilisateur");
+    $r->bindValue(':prenom_utilisateur', $prenomUtilisateur);
+    $r->bindValue(':pseudo_utilisateur', $pseudoUtilisateur);
+    $r->bindValue(':age_utilisateur', $ageUtilisateur);
+    $r->bindValue(':email_utilisateur', $emailUtilisateur);
     $r->execute();
 
     return $r->fetch(PDO::FETCH_OBJ);
+    
 }
 
 // -----------------------------------------Suppression profil----------------------------------------------
 
 public function get_suppression_profil($idUtilisateur) {
 
-    $r = $this->bd->prepare("DELETE FROM utilisateur WHERE `id_utilisateur`=:idUtilisateur");
-    $r->bindValue(':idUtilisateur', $idUtilisateur);
+    $r = $this->bd->prepare("DELETE FROM utilisateur WHERE `id_utilisateur`=:id_utilisateur");
+    $r->bindValue(':id_utilisateur', $idUtilisateur);
     $r->execute();
 
     return $r->fetchAll(PDO::FETCH_OBJ);

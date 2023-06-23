@@ -1,7 +1,7 @@
 // ------------------------------Affichage des regles de jeu et du start qcm-----------------------------------
-window.onload = function() {
-  let rulesDiv = document.getElementById('rules');
-  let startButton = document.getElementById('startButton');
+window.onload = function () {
+  let rulesDiv = document.getElementById("rules");
+  let startButton = document.getElementById("startButton");
 
   let rulesText = `
   <div class="rule">
@@ -39,9 +39,7 @@ window.onload = function() {
       <li>Évitez de passer trop de temps sur une seule question. Si vous êtes incertain, faites votre meilleure estimation et passez à la question suivante.</li>
     </ul>
   </div>
-`
-;
-
+`;
   rulesDiv.innerHTML = rulesText;
 };
 
@@ -85,11 +83,11 @@ function submitForm() {
   document.querySelector(".form_quizz").submit();
 }
 
-
 // ------------------------------Validation mot de passe-----------------------------------
 function showPasswordRules() {
-  let passwordRules = "Le mot de passe doit respecter les règles suivantes :" +
-    "- Au moins une majuscule<br>"+
+  var passwordRules =
+    "Le mot de passe doit respecter les règles suivantes :" +
+    "- Au moins une majuscule" +
     "- Au moins une minuscule<br>" +
     "- Au moins un chiffre<br>" +
     "- Au moins un caractère spécial<br>" +
@@ -99,17 +97,24 @@ function showPasswordRules() {
 }
 
 function checkPassword() {
-  let password = document.getElementById("password").value;
-  let passwordError = document.getElementById("passwordError");
-  
-  let hasUppercase = /[A-Z]/.test(password);
-  let hasLowercase = /[a-z]/.test(password);
-  let hasDigit = /\d/.test(password);
-  let hasSpecialChar = /[^A-Za-z0-9]/.test(password);
-  let isLengthValid = password.length >= 10;
-  
-  if (!(hasUppercase && hasLowercase && hasDigit && hasSpecialChar && isLengthValid)) {
-    passwordError.innerHTML = "Le mot de passe ne respecte pas les règles.";
+  var password = document.getElementById("password").value;
+  var passwordError = document.getElementById("passwordError");
+
+  var hasUppercase = /[A-Z]/.test(password);
+  var hasLowercase = /[a-z]/.test(password);
+  var hasDigit = /\d/.test(password);
+  var hasSpecialChar = /[^A-Za-z0-9]/.test(password);
+  var isLengthValid = password.length >= 10;
+
+  if (
+    !(
+      hasUppercase &&
+      hasLowercase &&
+      hasDigit &&
+      hasSpecialChar &&
+      isLengthValid
+    )
+  ) {
     passwordError.style.display = "block";
   } else {
     passwordError.style.display = "none";
@@ -117,20 +122,27 @@ function checkPassword() {
 }
 
 function validatePassword() {
-  let password = document.getElementById("password").value;
-  let passwordError = document.getElementById("passwordError");
-  
-  let hasUppercase = /[A-Z]/.test(password);
-  let hasLowercase = /[a-z]/.test(password);
-  let hasDigit = /\d/.test(password);
-  let hasSpecialChar = /[^A-Za-z0-9]/.test(password);
-  let isLengthValid = password.length >= 10;
-  
-  if (!(hasUppercase && hasLowercase && hasDigit && hasSpecialChar && isLengthValid)) {
-    passwordError.innerHTML = "Le mot de passe ne respecte pas les règles.";
+  var password = document.getElementById("password").value;
+  var passwordError = document.getElementById("passwordError");
+
+  var hasUppercase = /[A-Z]/.test(password);
+  var hasLowercase = /[a-z]/.test(password);
+  var hasDigit = /\d/.test(password);
+  var hasSpecialChar = /[^A-Za-z0-9]/.test(password);
+  var isLengthValid = password.length >= 10;
+
+  if (
+    !(
+      hasUppercase &&
+      hasLowercase &&
+      hasDigit &&
+      hasSpecialChar &&
+      isLengthValid
+    )
+  ) {
     passwordError.style.display = "block";
     return false;
   }
-  
+
   return true;
 }

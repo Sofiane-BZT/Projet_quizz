@@ -62,23 +62,29 @@ class Controller_selection extends Controller
         $m = Model::get_model();
         $listeIdQuestion = $m->get_all_liste_id_question($_SESSION['theme'], $_SESSION['niveau_question']);
         $_SESSION['ls_id_question'] = $listeIdQuestion;
-        $_SESSION['compteur'] = 0;
+        $_SESSION['compteur'] = -1;
         $_SESSION['score'] = 0;
+        // var_dump($listeIdQuestion);
         // var_dump($_SESSION['ls_id_question']);
+        // // exit;
         // var_dump($_SESSION['compteur']);
-        $this->render("init_reussie");
+        // $this->render("init_reussie");
+        header("Location: ?controller=selection&action=question_reponse_type_rep");
     }
 
 // ----------------------Récupération intitulé pour une question - réponses possibles - type de réponse - transfome type-reponse en string --------------------------
     
 
     public function action_question_reponse_type_rep() {
-        
+        var_dump($_POST);
         $m = Model::get_model();
-        if (isset($_POST["reponse"]))
+       
+            // Augmenter la valeur de compteur pour passer à la question suivante
+            $_SESSION['compteur']++;
+            if (isset($_POST["reponse"]))
         {
-        if (!empty($_POST["reponse"]))
-        {
+            
+                // var_dump($_SESSION['compteur']);
                 // Récupération des réponses sélectionnées par le joueur
                 $reponsesSelectionneesJoueur = $_POST["reponse"];
                 // var_dump($reponsesSelectionneesJoueur);
@@ -93,7 +99,7 @@ class Controller_selection extends Controller
                 var_dump($idQuestion);
 
                 //récupération des id_reponse dont type_rep = 1 selon id de la question posée
-              
+
                 $typeReponseUn = $m->get_idRepTypeRepUn($idQuestion);
                     var_dump($typeReponseUn);
 
@@ -118,7 +124,20 @@ class Controller_selection extends Controller
             } 
                     echo("le score est de : ".$_SESSION['score']);
         }
-    }
+    
+
+    // Vérifier si toutes les questions ont été affichées
+    if ($_SESSION['compteur'] == count($_SESSION['ls_id_question'])) {
+        // Toutes les questions ont été affichées
+
+        // $m->get_stk_resut_partie($_SESSION['theme'], $_SESSION['niveau_question'], $_SESSION['score']);
+        $this->render("score_final");
+
+        // action pour stocker le theme, niveau, score 
+
+        
+
+    } else {
 
         $idQuestion = $_SESSION['ls_id_question'][$_SESSION['compteur']]->id_question;
         // var_dump($idQuestion);
@@ -156,21 +175,7 @@ class Controller_selection extends Controller
             "isCheckbox" => convertTypeRepToString($typeReponse) > 1
         ];
 
-        $_SESSION['compteur']++; // Augmenter la valeur de compteur pour passer à la question suivante
-        $_SESSION['ls_id_question'][$_SESSION['compteur']];
-
-    // Vérifier si toutes les questions ont été affichées
-    if ($_SESSION['compteur'] >= count($_SESSION['ls_id_question'])) {
-        // Toutes les questions ont été affichées
-
-        // $m->get_stk_resut_partie($_SESSION['theme'], $_SESSION['niveau_question'], $_SESSION['score']);
-        $this->render("score_final");
-
-        // action pour stocker le theme, niveau, score 
-
-        
-
-    } else {
+        // $_SESSION['ls_id_question'][$_SESSION['compteur']];
         // Il reste des questions, affichage la prochaine question
         $this->render("quizz", $data);
 

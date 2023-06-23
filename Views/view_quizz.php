@@ -1,7 +1,7 @@
 <div id="timer">10</div>
 <div class="quizz_container">
   <form class="form_quizz" action="?controller=selection&action=question_reponse_type_rep" method="POST">
-    <h3 class="p_quizz" ><?= htmlspecialchars($question) ?></h3>
+    <h3 class="p_quizz" ><?= $_SESSION['compteur'] ?> <?= htmlspecialchars($question) ?></h3>
 
     <?php foreach ($reponse as $index => $r) { ?>
       <div class="reponses">
@@ -17,7 +17,7 @@
 
     <div class="button-container">
     <button type="button">Mettre en pause</button>
-    <button type="submit">Question suivante</button>
+    <button type="submit" name="submitquizz">Question suivante</button>
     </div>
 
   </form>
