@@ -88,8 +88,8 @@ function submitForm() {
 
 // ------------------------------Validation mot de passe-----------------------------------
 function showPasswordRules() {
-  var passwordRules = "Le mot de passe doit respecter les règles suivantes :" +
-    "- Au moins une majuscule" +
+  let passwordRules = "Le mot de passe doit respecter les règles suivantes :" +
+    "- Au moins une majuscule<br>"+
     "- Au moins une minuscule<br>" +
     "- Au moins un chiffre<br>" +
     "- Au moins un caractère spécial<br>" +
@@ -99,16 +99,17 @@ function showPasswordRules() {
 }
 
 function checkPassword() {
-  var password = document.getElementById("password").value;
-  var passwordError = document.getElementById("passwordError");
+  let password = document.getElementById("password").value;
+  let passwordError = document.getElementById("passwordError");
   
-  var hasUppercase = /[A-Z]/.test(password);
-  var hasLowercase = /[a-z]/.test(password);
-  var hasDigit = /\d/.test(password);
-  var hasSpecialChar = /[^A-Za-z0-9]/.test(password);
-  var isLengthValid = password.length >= 10;
+  let hasUppercase = /[A-Z]/.test(password);
+  let hasLowercase = /[a-z]/.test(password);
+  let hasDigit = /\d/.test(password);
+  let hasSpecialChar = /[^A-Za-z0-9]/.test(password);
+  let isLengthValid = password.length >= 10;
   
   if (!(hasUppercase && hasLowercase && hasDigit && hasSpecialChar && isLengthValid)) {
+    passwordError.innerHTML = "Le mot de passe ne respecte pas les règles.";
     passwordError.style.display = "block";
   } else {
     passwordError.style.display = "none";
@@ -116,16 +117,17 @@ function checkPassword() {
 }
 
 function validatePassword() {
-  var password = document.getElementById("password").value;
-  var passwordError = document.getElementById("passwordError");
+  let password = document.getElementById("password").value;
+  let passwordError = document.getElementById("passwordError");
   
-  var hasUppercase = /[A-Z]/.test(password);
-  var hasLowercase = /[a-z]/.test(password);
-  var hasDigit = /\d/.test(password);
-  var hasSpecialChar = /[^A-Za-z0-9]/.test(password);
-  var isLengthValid = password.length >= 10;
+  let hasUppercase = /[A-Z]/.test(password);
+  let hasLowercase = /[a-z]/.test(password);
+  let hasDigit = /\d/.test(password);
+  let hasSpecialChar = /[^A-Za-z0-9]/.test(password);
+  let isLengthValid = password.length >= 10;
   
   if (!(hasUppercase && hasLowercase && hasDigit && hasSpecialChar && isLengthValid)) {
+    passwordError.innerHTML = "Le mot de passe ne respecte pas les règles.";
     passwordError.style.display = "block";
     return false;
   }

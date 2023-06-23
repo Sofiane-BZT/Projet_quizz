@@ -21,6 +21,7 @@
       <div class="form-group">
         <label for="password">Mot de passe</label>
         <input type="password" name="mot_de_passe" id="password" required>
+        <div id="passwordError" class="error-message"></div>
       </div>
 
       <div class="form-group">
